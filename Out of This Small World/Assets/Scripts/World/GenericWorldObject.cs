@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using System.Collections;
+using TiledSharp;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -16,11 +17,40 @@ public class GenericWorldObject : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            Pickup();
+            if (genericObjectStruct.pickable)
+            {
+                Pickup();
+            }
+            else
+            {
+                if (genericObjectStruct.objectType == ObjectType.Switch)
+                {
+                    ToggleSwitch();
+                }
+            }
         }
     }
 
-    private bool weDestroying = false;
+    private bool toBeDestroyed = false;
+    private SpriteRenderer sr = null;
+    private BoxCollider bc = null;
+    private bool firstUse = true;
+
+    public void Init(PropertyDict dict)
+    {
+        if (dict.ContainsKey("SwitchId"))
+        {
+            genericObjectStruct.switchId = Tools.IntParseFast(dict["SwitchId"]);
+        }
+        if (dict.ContainsKey("Color"))
+        {
+            genericObjectStruct.keyColorType = (KeyColor)Tools.IntParseFast(dict["Color"]);
+        }
+        if (dict.ContainsKey("Reusable"))
+        {
+            genericObjectStruct.reusable = Tools.IntParseFast(dict["Reusable"]) == 1;
+        }
+    }
 
     public void Spawn(double x, double y, int width, int height)
     {
@@ -29,7 +59,6 @@ public class GenericWorldObject : MonoBehaviour
         sr.color = genericObjectStruct.keyColor;
         sr.sortingOrder = 5;
         transform.position = new Vector3((float)(x / 64), height - (float)(y / 64), transform.position.z);
-        Logger.Log("x[" + x + "] y[" + y + "]");
         gameObject.name += x + ", " + y;
         if (genericObjectStruct.objectType == ObjectType.Spawn)
         {
@@ -37,9 +66,41 @@ public class GenericWorldObject : MonoBehaviour
         }
     }
 
+    public void ToggleSwitchWall(int switchId)
+    {
+        if (genericObjectStruct.objectType == ObjectType.SwitchWall && switchId == genericObjectStruct.switchId)
+        {
+            if (firstUse || genericObjectStruct.reusable)
+            {
+                if (sr == null)
+                {
+                    sr = GetComponent<SpriteRenderer>();
+                }
+                if (bc == null)
+                {
+                    bc = GetComponent<BoxCollider>();
+                }
+                bc.enabled = !bc.enabled;
+                sr.enabled = !sr.enabled;
+                firstUse = false;
+            } else
+            {
+
+            }
+        }
+    }
+
+    private void ToggleSwitch()
+    {
+        if (genericObjectStruct.switchId != -1)
+        {
+            GameManager.main.ToggleSwitch(genericObjectStruct.switchId);
+        }
+    }
+
     private void OnDestroy()
     {
-        if (weDestroying)
+        if (toBeDestroyed)
         {
             GameManager.main.InventoryGain(genericObjectStruct);
         }
@@ -47,7 +108,7 @@ public class GenericWorldObject : MonoBehaviour
 
     private void Pickup()
     {
-        weDestroying = true;
+        toBeDestroyed = true;
         Destroy(gameObject);
     }
 }
@@ -60,4 +121,7 @@ public class GenericObjectStruct : System.Object
     public Color keyColor;
     public Sprite objectSprite;
     public string name;
+    public int switchId = -1;
+    public bool pickable = true;
+    public bool reusable = false;
 }

@@ -39,6 +39,24 @@ public class LoopLevelLoader : MonoBehaviour {
         }
     }
 
+    public void FlippersFound() {
+        foreach (GameObject waterObject in GameObject.FindGameObjectsWithTag("Water"))
+        {
+            waterObject.GetComponent<Water>().GainFlippers();
+        }
+    }
+
+    public void ToggleSwitch(int switchId)
+    {
+        GameObject items = currentWorld.GetItemContainer();
+        foreach(Transform child in items.transform)
+        {
+            GenericWorldObject worldObject = child.GetComponent<GenericWorldObject>();
+            worldObject.ToggleSwitchWall(switchId);
+        }
+        UpdateItems();
+    }
+
     public void UpdateItems()
     {
         GameObject items = currentWorld.GetItemContainer();
@@ -48,7 +66,6 @@ public class LoopLevelLoader : MonoBehaviour {
             {
                 if (maps[i][j] != null && !maps[i][j].IsCurrentWorld)
                 {
-                    Logger.Log("Setting items for:" + maps[i][j]);
                     maps[i][j].SetItems(items);
                 }
             }

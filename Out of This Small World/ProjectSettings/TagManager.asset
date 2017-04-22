@@ -6,6 +6,9 @@ TagManager:
   tags:
   - GameManager
   - ItemContainer
+  - Water
+  - WallContainer
+  - WaterContainer
   layers:
   - Default
   - TransparentFX

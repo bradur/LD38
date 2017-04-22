@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef704b1e4e4efd40ae223cbdd883b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventoryItemPrefab: {fileID: 114629983714642282, guid: f819202d4b2465e4dbffbf68317290a7,
+  playerInventoryItemPrefab: {fileID: 114341410087965768, guid: f819202d4b2465e4dbffbf68317290a7,
     type: 2}
 --- !u!222 &368349263
 CanvasRenderer:
@@ -575,6 +575,8 @@ MonoBehaviour:
   - {fileID: 114546894370019574, guid: f30eacf232e153f4ba2d611d3b9a06da, type: 2}
   - {fileID: 114546894370019574, guid: 439eb22d9c410d243b423fc467309370, type: 2}
   - {fileID: 114546894370019574, guid: a02d5b0bc76176c449aca53e9a6a4186, type: 2}
+  - {fileID: 0}
+  - {fileID: 114546894370019574, guid: 153a50118da1aa64884a4d15646ba2d5, type: 2}
 --- !u!1 &1226973953
 GameObject:
   m_ObjectHideFlags: 0

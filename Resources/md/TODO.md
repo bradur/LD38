@@ -16,7 +16,7 @@
     - [ ] Special layers
         - [x] House wall
         - [ ] Trees (properties: color[int], locked[bool], type[int])
-        - [ ] Switch wall & switch (property: switchId)
+        - [x] Switch wall & switch (property: switchId)
 
 - [ ] Player
     - [x] Player movement
@@ -28,7 +28,7 @@
 
 - [ ] Item system
     - [x] Pick up item
-    - [ ] Show picked up item on HUD (show tooltip?)
+    - [x] Show picked up item on HUD (show tooltip?)
     - [ ] Required item tooltip (on objects)
     - [ ] Use item (key, axe, pogo stick?)
     - [ ] Destroy item after use (key, axe)

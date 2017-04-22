@@ -110,3 +110,5 @@ MonoBehaviour:
   tilesPerSide: 8
   unitSize: 1
   wallPrefab: {fileID: 1191624452832258, guid: b3a6396165e3462479956c8d2443ebc9, type: 2}
+  waterPrefab: {fileID: 1191624452832258, guid: c9a02bd2bf8486946abc91ebe7a81bf5,
+    type: 2}

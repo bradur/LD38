@@ -35,13 +35,27 @@ public class TiledMesh : MonoBehaviour
     private TmxMap map;
 
     private Transform wallContainer;
+    private Transform waterContainer;
 
     [SerializeField]
     private GameObject wallPrefab;
 
+    [SerializeField]
+    private GameObject waterPrefab;
+
     public void Init(int width, int height, TmxLayer layer, Material material, Transform wallParent)
     {
-        wallContainer = wallParent;
+        foreach(Transform child in wallParent)
+        {
+            if (child.gameObject.tag == "WallContainer")
+            {
+                wallContainer = child;
+            }
+            if (child.gameObject.tag == "WaterContainer")
+            {
+                waterContainer = child;
+            }
+        }
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
         meshCollider = GetComponent<MeshCollider>();
@@ -88,6 +102,7 @@ public class TiledMesh : MonoBehaviour
         {
             for (int x = 0; x < tileCountX; x++)
             {
+                LayerType layerType = (LayerType)Tools.IntParseFast(layer.Properties["Type"]);
                 TmxLayerTile tile = layer.Tiles[(tileCountZ - z - 1) * tileCountX + x];
                 int tileId = tile.Gid - 1;
                 if (tileId == -1)
@@ -103,14 +118,24 @@ public class TiledMesh : MonoBehaviour
                 DrawVertex(index + 4, currentPosition, unitSize, unitSize);
                 DrawVertex(index + 3, currentPosition, 0, unitSize);
                 AssignUv(index, tiles[tileId], tileSize);
-                if ((LayerType)Tools.IntParseFast(layer.Properties["Type"]) == LayerType.Wall)
+                if (layerType == LayerType.Wall)
                 {
                     SpawnWall(tileCountX, tileCountZ, tile.X, tile.Y);
+                } else if (layerType == LayerType.Water)
+                {
+                    SpawnWater(tileCountX, tileCountZ, tile.X, tile.Y);
                 }
                 index += 6;
             }
 
         }
+    }
+
+    private void SpawnWater(int width, int height, int x, int y)
+    {
+        GameObject water = Instantiate(waterPrefab);
+        water.transform.parent = waterContainer;
+        water.transform.position = new Vector3(x, height - y - 1f, 0f);
     }
 
     private void SpawnWall(int width, int height, int x, int y)

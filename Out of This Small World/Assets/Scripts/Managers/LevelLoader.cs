@@ -38,7 +38,8 @@ public enum ObjectType
     Key,
     Axe,
     Flippers,
-    PogoStick
+    PogoStick,
+    SwitchWall
 }
 
 public enum KeyColor
@@ -123,8 +124,8 @@ public class LevelLoader : MonoBehaviour
 
     private void SpawnObject(TmxObjectGroup.TmxObject tmxObject, Transform parent, int width, int height)
     {
-        Logger.Log("" + Tools.IntParseFast(tmxObject.Properties["Type"]));
         GenericWorldObject worldObject = Instantiate(genericWorldObjectPrefabs[Tools.IntParseFast(tmxObject.Properties["Type"])]);
+        worldObject.Init(tmxObject.Properties);
         worldObject.transform.parent = parent;
         worldObject.Spawn(tmxObject.X, tmxObject.Y, width, height);
     }

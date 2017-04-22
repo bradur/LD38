@@ -33,14 +33,33 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void ToggleSwitch(int switchId)
+    {
+        loopLevelLoader.ToggleSwitch(switchId);
+    }
+
     public void InventoryGain(GenericObjectStruct genericObjectStruct)
     {
         uiManager.InventoryGain(genericObjectStruct);
+        if (genericObjectStruct.objectType == ObjectType.Flippers)
+        {
+            loopLevelLoader.FlippersFound();
+        }
         loopLevelLoader.UpdateItems();
     }
 
     public void SpawnPlayer(Vector3 spawnPosition)
     {
         playerTransform.position = spawnPosition;
+    }
+
+    public void PlayerIsSwimming()
+    {
+        Logger.Log("Swimming!");
+    }
+
+    public void PlayerIsLeavingAWaterTile()
+    {
+        Logger.Log("Not swimming?");
     }
 }
