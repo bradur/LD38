@@ -39,7 +39,8 @@ public enum ObjectType
     Axe,
     Flippers,
     PogoStick,
-    SwitchWall
+    SwitchWall,
+    Tree
 }
 
 public enum KeyColor

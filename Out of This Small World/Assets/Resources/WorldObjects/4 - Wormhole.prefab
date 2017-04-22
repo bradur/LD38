@@ -69,10 +69,11 @@ MonoBehaviour:
     objectType: 4
     keyColorType: 0
     keyColor: {r: 1, g: 1, b: 1, a: 1}
-    objectSprite: {fileID: 21300012, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
+    objectSprite: {fileID: 21300036, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
     name: Wormhole
     switchId: -1
     pickable: 0
+    reusable: 0
 --- !u!212 &212448928139078916
 SpriteRenderer:
   m_ObjectHideFlags: 1

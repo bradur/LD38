@@ -13,9 +13,9 @@
         - [x] Axe object (property: uses?)
         - [x] Flippers object
         - [ ] Pogo stick object?
-    - [ ] Special layers
+        - [x] Trees
+    - [x] Special layers
         - [x] House wall
-        - [ ] Trees (properties: color[int], locked[bool], type[int])
         - [x] Switch wall & switch (property: switchId)
 
 - [ ] Player

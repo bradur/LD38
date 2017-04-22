@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2c8d1049b6feeb54885f40e0b52a47ed
-timeCreated: 1492871138
+timeCreated: 1492895616
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,18 @@ TextureImporter:
     21300016: textures_8
     21300018: textures_9
     21300020: textures_10
+    21300022: sprites_0
+    21300024: sprites_1
+    21300026: sprites_2
+    21300028: sprites_3
+    21300030: sprites_4
+    21300032: sprites_5
+    21300034: sprites_6
+    21300036: sprites_7
+    21300038: sprites_8
+    21300040: sprites_9
+    21300042: sprites_10
+    21300044: sprites_11
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -105,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: textures_0
+      name: sprites_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +130,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_1
+      name: sprites_1
       rect:
         serializedVersion: 2
         x: 64
@@ -131,7 +143,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_2
+      name: sprites_2
       rect:
         serializedVersion: 2
         x: 128
@@ -144,7 +156,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_3
+      name: sprites_3
       rect:
         serializedVersion: 2
         x: 192
@@ -157,7 +169,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_4
+      name: sprites_4
       rect:
         serializedVersion: 2
         x: 0
@@ -170,7 +182,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_5
+      name: sprites_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprites_6
       rect:
         serializedVersion: 2
         x: 0
@@ -183,7 +208,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_6
+      name: sprites_7
       rect:
         serializedVersion: 2
         x: 0
@@ -196,7 +221,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_7
+      name: sprites_8
       rect:
         serializedVersion: 2
         x: 0
@@ -209,7 +234,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_8
+      name: sprites_9
       rect:
         serializedVersion: 2
         x: 64
@@ -222,7 +247,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_9
+      name: sprites_10
       rect:
         serializedVersion: 2
         x: 128
@@ -235,7 +260,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: textures_10
+      name: sprites_11
       rect:
         serializedVersion: 2
         x: 448

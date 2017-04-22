@@ -6,7 +6,6 @@ using UnityEngine;
 using System.Collections;
 using TiledSharp;
 
-[RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class GenericWorldObject : MonoBehaviour
 {
