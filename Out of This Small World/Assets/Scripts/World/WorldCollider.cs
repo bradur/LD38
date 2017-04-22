@@ -20,7 +20,6 @@ public class WorldCollider : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            Logger.Log("playerhitWorld!");
             parentWorld.PlayerHitWorld();
         }
     }

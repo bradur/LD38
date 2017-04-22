@@ -56,7 +56,6 @@ public class LoopLevelLoader : MonoBehaviour {
         {
             if (maps[y].Length >= x)
             {
-                Logger.Log("Loading..." + y + ", " + x + " -> " + maps[y][x]);
                 if (maps[y][x] == null)
                 {
                     maps[y][x] = CloneCurrentMap(x, y);
@@ -67,7 +66,6 @@ public class LoopLevelLoader : MonoBehaviour {
 
     private void ShiftMaps(int x, int y)
     {
-        Logger.Log("Shift to: x[" + x + "] y[" + y + "]");
         World[][] newMaps = new World[3][] {
             new World[] {null, null, null},
             new World[] {null, null, null},
@@ -84,13 +82,11 @@ public class LoopLevelLoader : MonoBehaviour {
                     if(newMaps[newY][newX] != null) {
                         newMaps[newY][newX].X = newX;
                         newMaps[newY][newX].Y = newY;
-                        Logger.Log(newMaps[newY][newX] + " from " + indexY + ", " + indexX + " to " + newY + ", " + newX);
                     }
                 } else
                 {
                     if(maps[indexY][indexX] != null && !maps[indexY][indexX].IsCurrentWorld)
                     {
-                        Logger.Log("Destroy:" + y + "," + x + ": [" + indexY + "][" + indexX + "] ("+newY+", "+newX+")");
                         Destroy(maps[indexY][indexX].gameObject);
                     }
                 }
