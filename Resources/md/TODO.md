@@ -19,6 +19,9 @@
         - [ ] Flippers object
         - [ ] Pogo stick object?
 
+- [ ] Player
+    - [x] Player movement
+
 - [ ] Looping world
 
 - [ ] Level transition effect
