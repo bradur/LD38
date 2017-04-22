@@ -23,7 +23,7 @@
     - [x] Player movement
     - [x] Camera follow
 
-- [ ] Looping world
+- [x] Looping world
 
 - [ ] Level transition effect
 
