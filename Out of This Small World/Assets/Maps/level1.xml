@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="64" tileheight="64" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="64" tileheight="64" nextobjectid="4">
  <properties>
   <property name="Title" value="Firstworld"/>
  </properties>
@@ -8,31 +8,31 @@
  </tileset>
  <layer name="Ground" width="50" height="50">
   <properties>
-   <property name="Type" type="int" value="0"/>
+   <property name="Type" type="int" value="1"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztwwEJAAAMBKH7/qWXY6DgqqmqqqqqqqqqqurzBwHpCcU=
+   eJztz7ENADAIBLFH7L9zdkgDEi7c31WSAgAAAMb1h+lmHz583PwAAAAAgK0eCSwKYQ==
   </data>
  </layer>
  <layer name="Water" width="50" height="50">
   <properties>
-   <property name="Type" type="int" value="1"/>
+   <property name="Type" type="int" value="2"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2jEKwDAMA8CQ/z+6Q5cOXUJwiMUdeJdmeY4x5sJVWcmwe9VSepzoclJCh6/O2f90ywsAAAAAAMArYctJ2KUS9rWUnbD75pm8Od/eq/tfQ1X+tB7VXU7kv73HA2ktAmE=
+   eJzt2jEOwCAMA0DE/x/dvRM0DSjRncQK9mzmGGNunK923sg+Ebezd+sRdTv/Hx1udjulWl4AAAAAAADWddhyOuxSHfa1Ljth9c2z6oZbcUt/8zcgt8fqvdk9Il1OZOvQ4wFS9QL/
   </data>
  </layer>
  <layer name="Wall" width="50" height="50">
   <properties>
-   <property name="Type" type="int" value="2"/>
+   <property name="Type" type="int" value="3"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1MEJADAIBEEf9l9zeogELjID93c/VgEAAMC/erAkt/foeENHFh1ZtvxdAAAAAHY6LuIAqQ==
+   eJzt1DEKACAMBEGL/P/NNr7AEDhlBq7PNllrVp29TkeWXzoAAIC+aizJ7T06ZujIoiPLza9N/LsAAAAA/GkDlR4AxQ==
   </data>
  </layer>
  <layer name="Trees" width="50" height="50">
   <properties>
-   <property name="Type" type="int" value="3"/>
+   <property name="Type" type="int" value="4"/>
   </properties>
   <data encoding="base64" compression="zlib">
    eJztz7EJADAMA0EX2X/mzJBCQZg7UC1+BgAAAAAAYJdjFljar580HV10dNHRRUcXHV10dNHx5gIkHwLR

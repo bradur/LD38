@@ -4,12 +4,12 @@
 
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
 
     private Vector3 direction;
-    private Rigidbody2D rb2D;
+    private Rigidbody rb2D;
 
     [Range(1f, 10f)]
     [SerializeField]
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody>();
     }
 
     private void Update()
