@@ -30,6 +30,28 @@ public class World : MonoBehaviour
         loopLevelLoader.PlayerHitWorld(this);
     }
 
+    public GameObject GetItemContainer()
+    {
+        foreach (Transform child in transform)
+        {
+            if(child.gameObject.tag == "ItemContainer")
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
+    }
+
+    public void SetItems(GameObject itemContainer)
+    {
+        GameObject currentContainer = GetItemContainer();
+        Vector3 itemContainerPosition = currentContainer.transform.position;
+        Destroy(currentContainer);
+        GameObject newItemContainer = Instantiate(itemContainer);
+        newItemContainer.transform.parent = transform;
+        newItemContainer.transform.position = itemContainerPosition;
+    }
+
     public void PlayerHitBorder(Direction direction)
     {
         int nextX = 0;

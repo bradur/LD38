@@ -4,20 +4,19 @@
     - [ ] World title
     - [ ] World flavor text?
     - [x] Background layers
-    - [ ] Environment object layer
-        - [ ] Player spawn object
-        - [ ] Door (properties: color[string], locked[bool], type[int])
-        - [ ] Switch (property: switchId)
-        - [ ] Wormhole object
-    - [ ] Special layers
-        - [ ] House wall
-        - [ ] Trees (properties: color[string], locked[bool], type[int])
-        - [ ] Switch wall & switch (property: switchId)
-    - [ ] Item object layer
-        - [ ] Key object (property: color)
-        - [ ] Axe object (property: uses?)
-        - [ ] Flippers object
+    - [x] Object layer
+        - [x] Player spawn object
+        - [x] Door (properties: color[int], locked[bool], type[int])
+        - [x] Switch (property: switchId)
+        - [x] Wormhole object
+        - [x] Key object (property: color)
+        - [x] Axe object (property: uses?)
+        - [x] Flippers object
         - [ ] Pogo stick object?
+    - [ ] Special layers
+        - [x] House wall
+        - [ ] Trees (properties: color[int], locked[bool], type[int])
+        - [ ] Switch wall & switch (property: switchId)
 
 - [ ] Player
     - [x] Player movement
@@ -28,7 +27,7 @@
 - [ ] Level transition effect
 
 - [ ] Item system
-    - [ ] Pick up item
+    - [x] Pick up item
     - [ ] Show picked up item on HUD (show tooltip?)
     - [ ] Required item tooltip (on objects)
     - [ ] Use item (key, axe, pogo stick?)

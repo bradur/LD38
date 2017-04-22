@@ -3,6 +3,7 @@
 // Author : bradur
 
 using UnityEngine;
+using System.Collections.Generic;
 using TiledSharp;
 
 enum LayerType
@@ -27,13 +28,31 @@ public enum Direction
     NorthWest
 }
 
+public enum ObjectType
+{
+    None,
+    Spawn,
+    Door,
+    Switch,
+    Wormhole,
+    Key,
+    Axe,
+    Flippers,
+    PogoStick
+}
+
+public enum KeyColor
+{
+    None,
+    Yellow,
+    Purple,
+    Red,
+}
+
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField]
     private World worldPrefab;
-
-    [SerializeField]
-    private WorldBorder worldBorderPrefab;
 
     [SerializeField]
     private TiledMesh worldColliderPrefab;
@@ -52,6 +71,12 @@ public class LevelLoader : MonoBehaviour
 
     [SerializeField]
     private LoopLevelLoader loopLevelLoader;
+
+    [SerializeField]
+    private PlayerMovement player;
+
+    [SerializeField]
+    private List<GenericWorldObject> genericWorldObjectPrefabs = new List<GenericWorldObject>();
 
     private float layerDistance = 0.005f;
 
@@ -72,42 +97,36 @@ public class LevelLoader : MonoBehaviour
                 tiledMesh = Instantiate(worldColliderPrefab);
                 WorldCollider worldCollider = tiledMesh.GetComponent<WorldCollider>();
                 worldCollider.Init(world);
-            } else
+            }
+            else
             {
                 tiledMesh = Instantiate(tiledMeshPrefab);
             }
-            
+
             tiledMesh.transform.parent = world.transform;
-            tempPosition = tiledMesh.transform.position;
+            tempPosition = Vector3.zero;
             tempPosition.z = layerDistance * -index;
-            tiledMesh.Init(map.Width, map.Height, layer, groundMaterial);
+            tiledMesh.Init(map.Width, map.Height, layer, groundMaterial, world.transform);
             tiledMesh.transform.position = tempPosition;
         }
+        for (int index = 0; index < map.ObjectGroups.Count; index += 1)
+        {
+            for (int oIndex = 0; oIndex < map.ObjectGroups[index].Objects.Count; oIndex += 1)
+            {
+                TmxObjectGroup.TmxObject tmxObject = map.ObjectGroups[index].Objects[oIndex];
+                SpawnObject(tmxObject, world.GetItemContainer().transform, map.Width, map.Height);
+            }
+        }
 
-        float borderScale = worldBorderPrefab.transform.localScale.y;
-        float borderMultiplier = 4;
-        float bigBorder = borderScale * 4;
-        InitWorldBorder(world, borderScale * borderMultiplier - bigBorder / 2, map.Height - bigBorder / 2, bigBorder, bigBorder, Direction.NorthWest);
-        InitWorldBorder(world, map.Width / 2, map.Height - borderScale * borderMultiplier, map.Width, borderScale * 2, Direction.North);
-        InitWorldBorder(world, map.Width - bigBorder / 2, map.Height - bigBorder / 2, bigBorder, bigBorder, Direction.NorthEast);
-        InitWorldBorder(world, map.Width - borderScale * borderMultiplier, map.Height / 2, borderScale * 2, map.Height, Direction.East);
-        InitWorldBorder(world, map.Width / 2, borderScale * borderMultiplier, map.Width, borderScale * 2, Direction.South);
-        InitWorldBorder(world, map.Width - bigBorder / 2, borderScale * borderMultiplier - bigBorder / 2, bigBorder, bigBorder, Direction.SouthEast);
-        InitWorldBorder(world, borderScale * borderMultiplier, map.Height / 2, borderScale * 2, map.Height, Direction.West);
-        InitWorldBorder(world, borderScale * borderMultiplier - bigBorder / 2, borderScale * borderMultiplier - bigBorder / 2, bigBorder, bigBorder, Direction.SouthWest);
-
-        world.IsCurrentWorld = true;
         loopLevelLoader.Init(world, map.Width, map.Height);
     }
 
-    private void InitWorldBorder(World parent, float xPosition, float yPosition, float xScale, float yScale, Direction direction)
+    private void SpawnObject(TmxObjectGroup.TmxObject tmxObject, Transform parent, int width, int height)
     {
-        WorldBorder worldBorder = Instantiate(worldBorderPrefab);
-        worldBorder.name = direction.ToString();
-        worldBorder.transform.parent = parent.transform;
-        worldBorder.transform.position = new Vector3(xPosition, yPosition, 0f);
-        worldBorder.transform.localScale = new Vector3(xScale - 2, yScale - 2, worldBorder.transform.localScale.z);
-        worldBorder.Init(parent, direction);
+        Logger.Log("" + Tools.IntParseFast(tmxObject.Properties["Type"]));
+        GenericWorldObject worldObject = Instantiate(genericWorldObjectPrefabs[Tools.IntParseFast(tmxObject.Properties["Type"])]);
+        worldObject.transform.parent = parent;
+        worldObject.Spawn(tmxObject.X, tmxObject.Y, width, height);
     }
 
     void Start()

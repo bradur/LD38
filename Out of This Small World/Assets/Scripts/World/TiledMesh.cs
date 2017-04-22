@@ -34,8 +34,14 @@ public class TiledMesh : MonoBehaviour
     private float tileSize;
     private TmxMap map;
 
-    public void Init(int width, int height, TmxLayer layer, Material material)
+    private Transform wallContainer;
+
+    [SerializeField]
+    private GameObject wallPrefab;
+
+    public void Init(int width, int height, TmxLayer layer, Material material, Transform wallParent)
     {
+        wallContainer = wallParent;
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
         meshCollider = GetComponent<MeshCollider>();
@@ -82,7 +88,8 @@ public class TiledMesh : MonoBehaviour
         {
             for (int x = 0; x < tileCountX; x++)
             {
-                int tileId = layer.Tiles[(tileCountZ - z - 1) * tileCountX + x].Gid - 1;
+                TmxLayerTile tile = layer.Tiles[(tileCountZ - z - 1) * tileCountX + x];
+                int tileId = tile.Gid - 1;
                 if (tileId == -1)
                 {
                     continue;
@@ -96,10 +103,21 @@ public class TiledMesh : MonoBehaviour
                 DrawVertex(index + 4, currentPosition, unitSize, unitSize);
                 DrawVertex(index + 3, currentPosition, 0, unitSize);
                 AssignUv(index, tiles[tileId], tileSize);
+                if ((LayerType)Tools.IntParseFast(layer.Properties["Type"]) == LayerType.Wall)
+                {
+                    SpawnWall(tileCountX, tileCountZ, tile.X, tile.Y);
+                }
                 index += 6;
             }
 
         }
+    }
+
+    private void SpawnWall(int width, int height, int x, int y)
+    {
+        GameObject wall = Instantiate(wallPrefab);
+        wall.transform.parent = wallContainer;
+        wall.transform.position = new Vector3(x, height - y - 1f, 0f);
     }
 
     void AssignUv(int index, Vector2 texture, float uSize)

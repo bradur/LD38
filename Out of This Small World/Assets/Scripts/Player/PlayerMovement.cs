@@ -9,44 +9,45 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private Vector3 direction;
-    private Rigidbody rb2D;
+    private Rigidbody rigidBody;
 
-    [Range(1f, 10f)]
+    [Range(20f, 300f)]
     [SerializeField]
     private float forwardSpeed = 1f;
 
-    [Range(1f, 10f)]
+    [Range(20f, 300f)]
     [SerializeField]
     private float backwardSpeed = 1f;
 
-    [Range(3f, 10f)]
+    [Range(20f, 300f)]
     [SerializeField]
-    private float rotationSpeed = 6f;
+    private float rotationSpeed = 100f;
 
     private void Start()
     {
-        rb2D = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float horizontalAxis = Input.GetAxis("Horizontal");
 
-        transform.Rotate(0f, 0f, -horizontalAxis * rotationSpeed);
+        if (horizontalAxis != 0)
+        {
+            float horizontalRotation = horizontalAxis * Time.deltaTime * rotationSpeed;
+            //transform.Rotate(0f, 0f, -horizontalRotation);
+            transform.eulerAngles -= new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, horizontalRotation);
+        }
 
         float verticalAxis = Input.GetAxis("Vertical");
 
-        if (verticalAxis > 0.55f)
+        if (verticalAxis > 0)
         {
-            direction = transform.right * forwardSpeed;
-        } else if (verticalAxis < -0.05f)
-        {
-            direction = -transform.right * backwardSpeed;
-        } else
-        {
-            direction = Vector3.zero;
+            rigidBody.AddForce(transform.right * forwardSpeed, ForceMode.Force);
         }
-
-        rb2D.velocity = direction;
+        else if (verticalAxis < 0)
+        {
+            rigidBody.AddForce(-transform.right * forwardSpeed, ForceMode.Force);
+        }
     }
 }

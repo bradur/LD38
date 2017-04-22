@@ -21,9 +21,38 @@ public class LoopLevelLoader : MonoBehaviour {
     public void Init (World initialWorld, int width, int height)
     {
         currentWorld = initialWorld;
-        maps[1][1] = initialWorld;
+        currentWorld.IsCurrentWorld = true;
+        maps[1][1] = currentWorld;
         mapWidth = width;
         mapHeight = height;
+        LoadNewMaps();
+    }
+
+    private void LoadNewMaps()
+    {
+        for (int i = 0; i < maps.Length; i += 1)
+        {
+            for (int j = 0; j < maps[i].Length; j += 1)
+            {
+                LoadMapIfNotLoaded(j, i);
+            }
+        }
+    }
+
+    public void UpdateItems()
+    {
+        GameObject items = currentWorld.GetItemContainer();
+        for (int i = 0; i < maps.Length; i += 1)
+        {
+            for (int j = 0; j < maps[i].Length; j += 1)
+            {
+                if (maps[i][j] != null && !maps[i][j].IsCurrentWorld)
+                {
+                    Logger.Log("Setting items for:" + maps[i][j]);
+                    maps[i][j].SetItems(items);
+                }
+            }
+        }
     }
 
     public void PlayerHitWorld(World world) {
@@ -33,6 +62,7 @@ public class LoopLevelLoader : MonoBehaviour {
             currentWorld = world;
             ShiftMaps(currentWorld.X - 1, currentWorld.Y - 1);
             currentWorld.IsCurrentWorld = true;
+            LoadNewMaps();
         }
     }
 
