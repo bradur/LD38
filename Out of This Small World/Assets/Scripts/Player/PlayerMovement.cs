@@ -11,13 +11,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 direction;
     private Rigidbody2D rb2D;
 
-    [Range(0.2f, 2.2f)]
+    [Range(1f, 10f)]
     [SerializeField]
-    private float forwardSpeed = 0.75f;
+    private float forwardSpeed = 1f;
 
-    [Range(0.2f, 2.2f)]
+    [Range(1f, 10f)]
     [SerializeField]
-    private float backwardSpeed = 0.75f;
+    private float backwardSpeed = 1f;
 
     [Range(3f, 10f)]
     [SerializeField]
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         float verticalAxis = Input.GetAxis("Vertical");
 
-        if (verticalAxis > 0.05f)
+        if (verticalAxis > 0.55f)
         {
             direction = transform.right * forwardSpeed;
         } else if (verticalAxis < -0.05f)

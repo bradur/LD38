@@ -3,7 +3,7 @@
 - [ ] Tiled
     - [ ] World title
     - [ ] World flavor text?
-    - [ ] Background layers
+    - [x] Background layers
     - [ ] Environment object layer
         - [ ] Player spawn object
         - [ ] Door (properties: color[string], locked[bool], type[int])
@@ -21,6 +21,7 @@
 
 - [ ] Player
     - [x] Player movement
+    - [x] Camera follow
 
 - [ ] Looping world
 
@@ -59,6 +60,7 @@
     - [ ] Main menu (Continue / New Game / Exit)
     - [ ] The End menu (New Game / Main Menu / Exit)
     - [ ] Required item tooltip
+    - [ ] Show world title
 
 - [ ] Other
     - [ ] Find and decide font
