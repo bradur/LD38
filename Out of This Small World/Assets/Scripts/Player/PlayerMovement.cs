@@ -50,4 +50,34 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.AddForce(-transform.right * forwardSpeed, ForceMode.Force);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GenericWorldObject worldObject = collision.gameObject.GetComponent<GenericWorldObject>();
+        if (collision.gameObject.tag == "Door")
+        {
+            GenericWorldObject keyObject = GameManager.main.GetWorldObjectPrefab(ObjectType.Key);
+            GameManager.main.ShowToolTip(
+                "I should find a " + worldObject.GenericObjectStruct.keyColorType + " key.",
+                keyObject.GenericObjectStruct.objectSprite,
+                worldObject.GenericObjectStruct.keyColorType
+            );
+        } else if (collision.gameObject.tag == "Water")
+        {
+            GenericWorldObject flippersObject = GameManager.main.GetWorldObjectPrefab(ObjectType.Flippers);
+            GameManager.main.ShowToolTip(
+                "I should find a pair of flippers.",
+                flippersObject.GenericObjectStruct.objectSprite,
+                KeyColor.None
+            );
+        } else if (collision.gameObject.tag == "Tree")
+        {
+            GenericWorldObject axeObject = GameManager.main.GetWorldObjectPrefab(ObjectType.Axe);
+            GameManager.main.ShowToolTip(
+                "I need an axe. Or maybe I could find another way...",
+                axeObject.GenericObjectStruct.objectSprite,
+                worldObject.GenericObjectStruct.keyColorType
+            );
+        }
+    }
 }

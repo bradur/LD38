@@ -58,11 +58,11 @@
     - [ ] Pause menu (Resume / Main Menu / Restart)
     - [ ] Main menu (Continue / New Game / Exit)
     - [ ] The End menu (New Game / Main Menu / Exit)
-    - [ ] Required item tooltip
+    - [x] Required item tooltip
     - [ ] Show world title
 
 - [ ] Other
-    - [ ] Find and decide font
+    - [x] Find and decide font
 
 - [ ] Art
     - [ ] Textures
@@ -74,7 +74,7 @@
         - [ ] Door sprite (multiple colors / unity color var)
         - [ ] Player sprite (animated preferably)
         - [ ] Wormhole sprite (animated preferably)
-        - [ ] Tree sprite
+        - [x] Tree sprite
     - [ ] Items
         - [ ] Key sprite (multiple colors / unity color var)
         - [ ] Axe sprite

@@ -9,18 +9,19 @@ using System.Collections;
 public class UIManager : MonoBehaviour {
 
     [SerializeField]
-    private Text txtComponent;
-    [SerializeField]
-    private Color colorVariable;
-    [SerializeField]
-    private Image imgComponent;
-
-    [SerializeField]
     private PlayerInventoryManager playerInventoryManager;
 
     public void InventoryGain(GenericObjectStruct genericObjectStruct)
     {
         playerInventoryManager.Gain(genericObjectStruct);
+    }
+
+    [SerializeField]
+    ToolTipManager toolTipManager;
+
+    public void ShowToolTip(string message, Sprite image, KeyColor color)
+    {
+        toolTipManager.ShowToolTip(message, image, color);
     }
 
 }

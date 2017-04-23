@@ -13,6 +13,7 @@ public class WorldCollider : MonoBehaviour
 
     public void Init(World world)
     {
+        GetComponent<MeshRenderer>().enabled = false;
         parentWorld = world;
     }
 

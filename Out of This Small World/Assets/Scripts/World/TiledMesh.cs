@@ -65,7 +65,7 @@ public class TiledMesh : MonoBehaviour
         InitMesh(width, height);
         DrawMesh(width, height, layer);
         UpdateMesh();
-        gameObject.isStatic = true;
+        //gameObject.isStatic = true;
     }
 
     // calculates UV coordinates for each tile

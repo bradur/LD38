@@ -82,6 +82,11 @@ public class LevelLoader : MonoBehaviour
 
     private float layerDistance = 0.005f;
 
+    public GenericWorldObject GetWorldObjectPrefab(ObjectType objectType)
+    {
+        return genericWorldObjectPrefabs[(int)objectType];
+    }
+
     private void Init(TextAsset mapFile)
     {
         Vector3 tempPosition;
@@ -99,17 +104,20 @@ public class LevelLoader : MonoBehaviour
                 tiledMesh = Instantiate(worldColliderPrefab);
                 WorldCollider worldCollider = tiledMesh.GetComponent<WorldCollider>();
                 worldCollider.Init(world);
-            }
-            else
-            {
-                tiledMesh = Instantiate(tiledMeshPrefab);
+                tiledMesh.transform.SetParent(world.transform, false);
+                tiledMesh.Init(map.Width, map.Height, layer, groundMaterial, world.transform);
             }
 
+            tiledMesh = Instantiate(tiledMeshPrefab);
             tiledMesh.transform.parent = world.transform;
             tempPosition = Vector3.zero;
             tempPosition.z = layerDistance * -index;
             tiledMesh.Init(map.Width, map.Height, layer, groundMaterial, world.transform);
             tiledMesh.transform.position = tempPosition;
+            tiledMesh.GetComponent<MeshCollider>().enabled = false;
+
+
+
         }
         for (int index = 0; index < map.ObjectGroups.Count; index += 1)
         {

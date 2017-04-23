@@ -3,7 +3,7 @@
 // Author : bradur
 
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private LoopLevelLoader loopLevelLoader;
 
+    [SerializeField]
+    private LevelLoader levelLoader;
+
+    [SerializeField]
+    private List<Color> keyColors = new List<Color>();
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -31,6 +37,21 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+
+    public GenericWorldObject GetWorldObjectPrefab(ObjectType objectType)
+    {
+        return levelLoader.GetWorldObjectPrefab(objectType);
+    }
+
+    public void ShowToolTip(string message, Sprite sprite, KeyColor color)
+    {
+        uiManager.ShowToolTip(message, sprite, color);
+    }
+
+    public Color GetKeyColor(KeyColor color)
+    {
+        return keyColors[(int)color];
     }
 
     public void ToggleSwitch(int switchId)

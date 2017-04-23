@@ -12,6 +12,8 @@ public class GenericWorldObject : MonoBehaviour
 
     [SerializeField]
     private GenericObjectStruct genericObjectStruct;
+
+    public GenericObjectStruct GenericObjectStruct { get { return genericObjectStruct; } }
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Player")
@@ -44,6 +46,7 @@ public class GenericWorldObject : MonoBehaviour
         if (dict.ContainsKey("Color"))
         {
             genericObjectStruct.keyColorType = (KeyColor)Tools.IntParseFast(dict["Color"]);
+            genericObjectStruct.keyColor = GameManager.main.GetKeyColor(genericObjectStruct.keyColorType);
         }
         if (dict.ContainsKey("Reusable"))
         {

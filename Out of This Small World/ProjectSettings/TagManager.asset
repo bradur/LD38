@@ -10,6 +10,8 @@ TagManager:
   - WallContainer
   - WaterContainer
   - TreeContainer
+  - Tree
+  - Door
   layers:
   - Default
   - TransparentFX
