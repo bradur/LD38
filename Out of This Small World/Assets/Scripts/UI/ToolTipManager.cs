@@ -24,12 +24,10 @@ public class ToolTipManager : MonoBehaviour
         }
         else
         {
-            Logger.Log(currentToolTip.Message + " vs " + message);
             if (currentToolTip.Message != message)
             {
                 if (currentToolTip != null)
                 {
-                    Logger.Log("DESTROY");
                     currentToolTip.Kill();
                 }
                 currentToolTip = Instantiate(toolTipPrefab);
@@ -37,5 +35,10 @@ public class ToolTipManager : MonoBehaviour
                 currentToolTip.Init(message, sprite, color);
             }
         }
+    }
+
+    public void KillToolTip()
+    {
+        currentToolTip.Kill();
     }
 }

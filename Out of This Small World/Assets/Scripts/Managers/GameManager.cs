@@ -49,6 +49,31 @@ public class GameManager : MonoBehaviour {
         uiManager.ShowToolTip(message, sprite, color);
     }
 
+    public GenericObjectStruct InventoryGetKey(KeyColor color)
+    {
+        return uiManager.InventoryGetKey(color);
+    }
+
+    public PlayerInventoryItem InventoryGetItem(ObjectType objectType)
+    {
+        return uiManager.InventoryGetItem(objectType);
+    }
+
+    public void InventoryUseItem(PlayerInventoryItem item)
+    {
+        uiManager.InventoryUseItem(item);
+    }
+
+    public bool InventoryUseKey(KeyColor color)
+    {
+        return uiManager.InventoryUseKey(color);
+    }
+
+    public void KillToolTip()
+    {
+        uiManager.KillToolTip();
+    }
+
     public Color GetKeyColor(KeyColor color)
     {
         return keyColors[(int)color];

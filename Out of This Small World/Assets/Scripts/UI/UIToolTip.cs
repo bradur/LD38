@@ -24,8 +24,6 @@ public class UIToolTip : MonoBehaviour {
         msg = message;
         txtComponent.text = message;
         imgComponent.sprite = sprite;
-        Logger.Log(color + "");
-        Logger.Log(GameManager.main.GetKeyColor(color) + "");
         if (color != KeyColor.None) { 
             imgComponent.color = GameManager.main.GetKeyColor(color);
         }

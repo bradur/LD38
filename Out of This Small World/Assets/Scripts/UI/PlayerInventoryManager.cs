@@ -27,9 +27,52 @@ public class PlayerInventoryManager : MonoBehaviour {
         UpdatePositions();
     }
 
+    public bool UseKey(KeyColor color)
+    {
+        for (int i = 0; i < items.Count; i += 1)
+        {
+
+            PlayerInventoryItem inventoryItem = items[i];
+            if (inventoryItem.GenericObjectStruct.keyColorType == color)
+            {
+                Use(inventoryItem);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public GenericObjectStruct GetKey(KeyColor color)
+    {
+        for (int i = 0; i < items.Count; i += 1)
+        {
+            
+            PlayerInventoryItem inventoryItem = items[i];
+            if (inventoryItem.GenericObjectStruct.keyColorType == color)
+            {
+                return inventoryItem.GenericObjectStruct;
+            }
+        }
+        return null;
+    }
+
+    public PlayerInventoryItem GetItem(ObjectType objectType)
+    {
+        for (int i = 0; i < items.Count; i += 1)
+        {
+            PlayerInventoryItem inventoryItem = items[i];
+            if (inventoryItem.GenericObjectStruct.objectType == objectType)
+            {
+                return inventoryItem;
+            }
+        }
+        return null;
+    }
+
     public void Use(PlayerInventoryItem item)
     {
         items.Remove(item);
+        item.Kill();
         UpdatePositions();
     }
 

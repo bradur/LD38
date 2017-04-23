@@ -29,9 +29,10 @@
 - [ ] Item system
     - [x] Pick up item
     - [x] Show picked up item on HUD (show tooltip?)
-    - [ ] Required item tooltip (on objects)
+    - [x] Required item tooltip (on objects)
     - [ ] Use item (key, axe, pogo stick?)
-    - [ ] Destroy item after use (key, axe)
+        - [x] Unlock door with key
+    - [x] Destroy item after use (key, axe)
 
 - [ ] Level manager
     - [ ] Current level
@@ -75,10 +76,10 @@
         - [ ] Player sprite (animated preferably)
         - [ ] Wormhole sprite (animated preferably)
         - [x] Tree sprite
-    - [ ] Items
-        - [ ] Key sprite (multiple colors / unity color var)
-        - [ ] Axe sprite
-        - [ ] Flippers sprite
+    - [x] Items
+        - [x] Key sprite (multiple colors / unity color var)
+        - [x] Axe sprite
+        - [x] Flippers sprite
         - [ ] Pogo stick sprite?
     - [ ] Logo
     - [ ] How-to-play images

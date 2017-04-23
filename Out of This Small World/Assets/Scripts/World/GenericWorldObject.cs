@@ -68,6 +68,14 @@ public class GenericWorldObject : MonoBehaviour
         }
     }
 
+    public void OpenDoor()
+    {
+        if (GameManager.main.InventoryUseKey(genericObjectStruct.keyColorType))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void ToggleSwitchWall(int switchId)
     {
         if (genericObjectStruct.objectType == ObjectType.SwitchWall && switchId == genericObjectStruct.switchId)
@@ -110,6 +118,11 @@ public class GenericWorldObject : MonoBehaviour
 
     private void Pickup()
     {
+        GameManager.main.ShowToolTip(
+            "You found " + (genericObjectStruct.keyColorType != KeyColor.None ? genericObjectStruct.keyColorType + " " : "") + genericObjectStruct.objectType + "!",
+            genericObjectStruct.objectSprite,
+            genericObjectStruct.keyColorType
+        );
         toBeDestroyed = true;
         Destroy(gameObject);
     }

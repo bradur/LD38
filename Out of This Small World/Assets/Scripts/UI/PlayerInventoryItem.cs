@@ -6,7 +6,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerInventoryItem : MonoBehaviour {
+public class PlayerInventoryItem : MonoBehaviour
+{
 
     [SerializeField]
     private Text txtComponent;
@@ -15,8 +16,17 @@ public class PlayerInventoryItem : MonoBehaviour {
     [SerializeField]
     private Image imgComponent;
 
-    public void Init (GenericObjectStruct genericObjectStruct)
+    private GenericObjectStruct genericObjectStruct;
+    public GenericObjectStruct GenericObjectStruct { get { return genericObjectStruct; } }
+
+    public void Kill()
     {
+        Destroy(gameObject);
+    }
+
+    public void Init(GenericObjectStruct newObject)
+    {
+        genericObjectStruct = newObject;
         txtComponent.text = genericObjectStruct.name;
         imgComponent.color = genericObjectStruct.keyColor;
         imgComponent.sprite = genericObjectStruct.objectSprite;

@@ -24,4 +24,28 @@ public class UIManager : MonoBehaviour {
         toolTipManager.ShowToolTip(message, image, color);
     }
 
+    public GenericObjectStruct InventoryGetKey(KeyColor color)
+    {
+        return playerInventoryManager.GetKey(color);
+    }
+
+    public PlayerInventoryItem InventoryGetItem(ObjectType objectType)
+    {
+        return playerInventoryManager.GetItem(objectType);
+    }
+
+    public void InventoryUseItem(PlayerInventoryItem item)
+    {
+        playerInventoryManager.Use(item);
+    }
+
+    public bool InventoryUseKey(KeyColor color)
+    {
+        return playerInventoryManager.UseKey(color);
+    }
+
+    public void KillToolTip()
+    {
+        toolTipManager.KillToolTip();
+    }
 }
