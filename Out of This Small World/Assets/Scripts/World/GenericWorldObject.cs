@@ -37,6 +37,9 @@ public class GenericWorldObject : MonoBehaviour
     private BoxCollider bc = null;
     private bool firstUse = true;
 
+    [SerializeField]
+    private SpriteRenderer highLight;
+
     public void Init(PropertyDict dict)
     {
         if (dict.ContainsKey("SwitchId"))
@@ -59,7 +62,8 @@ public class GenericWorldObject : MonoBehaviour
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.sprite = genericObjectStruct.objectSprite;
         sr.color = genericObjectStruct.keyColor;
-        sr.sortingOrder = 5;
+        highLight.sprite = genericObjectStruct.objectSprite;
+        sr.sortingOrder = 4;
         transform.position = new Vector3((float)(x / 64), height - (float)(y / 64), transform.position.z);
         gameObject.name += x + ", " + y;
         if (genericObjectStruct.objectType == ObjectType.Spawn)
@@ -68,12 +72,28 @@ public class GenericWorldObject : MonoBehaviour
         }
     }
 
+    public void HighLight()
+    {
+        highLight.enabled = true;
+    }
+
+    public void LowLight()
+    {
+        highLight.enabled = false;
+    }
+
     public void OpenDoor()
     {
         if (GameManager.main.InventoryUseKey(genericObjectStruct.keyColorType))
         {
+            toBeDestroyed = true;
             Destroy(gameObject);
         }
+    }
+
+    public void ChopDownTree()
+    {
+        Destroy(gameObject);
     }
 
     public void ToggleSwitchWall(int switchId)
@@ -112,7 +132,14 @@ public class GenericWorldObject : MonoBehaviour
     {
         if (toBeDestroyed)
         {
-            GameManager.main.InventoryGain(genericObjectStruct);
+            if(genericObjectStruct.objectType == ObjectType.Door)
+            {
+                GameManager.main.UpdateItems();
+            } else
+            {
+                GameManager.main.InventoryGain(genericObjectStruct);
+            }
+            
         }
     }
 

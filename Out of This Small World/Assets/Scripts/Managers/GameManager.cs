@@ -84,6 +84,11 @@ public class GameManager : MonoBehaviour {
         loopLevelLoader.ToggleSwitch(switchId);
     }
 
+    public void UpdateItems()
+    {
+        loopLevelLoader.UpdateItems();
+    }
+
     public void InventoryGain(GenericObjectStruct genericObjectStruct)
     {
         uiManager.InventoryGain(genericObjectStruct);

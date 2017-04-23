@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
+    GenericWorldObject targetTree = null;
     GenericWorldObject doorToOpen = null;
 
     private void FixedUpdate()
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyManager.main.GetKey(Action.UseKeyOnDoor)) && doorToOpen != null)
         {
-            if (Vector3.Distance(transform.position, doorToOpen.transform.position) < 1f)
+            if (Vector2.Distance(transform.position, doorToOpen.transform.position) < 1f)
             {
                 doorToOpen.OpenDoor();
                 GameManager.main.ShowToolTip(
@@ -73,24 +74,60 @@ public class PlayerMovement : MonoBehaviour
                     doorToOpen.GenericObjectStruct.objectSprite,
                     doorToOpen.GenericObjectStruct.keyColorType
                 );
+                doorToOpen.LowLight();
                 doorToOpen = null;
             }
         }
-        if (Input.GetKeyUp(KeyManager.main.GetKey(Action.SwingAxe)))
+        if (Input.GetKeyUp(KeyManager.main.GetKey(Action.SwingAxe)) && targetTree != null)
         {
             PlayerInventoryItem item = GameManager.main.InventoryGetItem(ObjectType.Axe);
             if(item != null)
             {
-                GameManager.main.InventoryUseItem(item);
-                SwingAxe();
-                GameManager.main.KillToolTip();
+                if (Vector2.Distance(transform.position, targetTree.transform.position) < 1f)
+                {
+                    GameManager.main.InventoryUseItem(item);
+                    GameManager.main.ShowToolTip(
+                        "You swung your axe and chopped down the tree!",
+                        targetTree.GenericObjectStruct.objectSprite,
+                        targetTree.GenericObjectStruct.keyColorType
+                    );
+                    SwingAxe();
+                }
+                else
+                {
+                    GameManager.main.ShowToolTip(
+                        "Too far away to chop the tree!",
+                        targetTree.GenericObjectStruct.objectSprite,
+                        targetTree.GenericObjectStruct.keyColorType
+                    );
+                    targetTree.LowLight();
+                    targetTree = null;
+                }
+
+            }
+        }
+        if (targetTree)
+        {
+            if (Vector2.Distance(transform.position, targetTree.transform.position) > 1f)
+            {
+                targetTree.LowLight();
+                targetTree = null;
+            }
+        }
+        if (doorToOpen)
+        {
+            if (Vector2.Distance(transform.position, doorToOpen.transform.position) > 1f)
+            {
+                doorToOpen.LowLight();
+                doorToOpen = null;
             }
         }
     }
 
     private void SwingAxe()
     {
-        Logger.Log("Swing!");
+        targetTree.ChopDownTree();
+        targetTree = null;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -107,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
                     keyStruct.keyColorType
                 );
                 doorToOpen = worldObject;
+                doorToOpen.HighLight();
             }
             else
             {
@@ -133,10 +171,15 @@ public class PlayerMovement : MonoBehaviour
             if (item != null)
             {
                 GameManager.main.ShowToolTip(
-                    "Press " + KeyManager.main.GetKeyString(Action.SwingAxe) + " to swing your axe.",
+                    "Press " + KeyManager.main.GetKeyString(Action.SwingAxe) + " to chop down the tree with your axe.",
                     item.GenericObjectStruct.objectSprite,
                     KeyColor.None
                 );
+                if (targetTree != null) {
+                    targetTree.LowLight();
+                }
+                targetTree = worldObject;
+                targetTree.HighLight();
             }
             else
             {
