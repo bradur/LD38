@@ -136,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SwingAxe()
     {
+        SoundManager.main.PlaySound(SoundType.ChopWood);
         targetTree.ChopDownTree();
         targetTree = null;
     }

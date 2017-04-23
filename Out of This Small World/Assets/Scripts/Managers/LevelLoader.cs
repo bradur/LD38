@@ -91,6 +91,9 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     private Sprite tooltipSprite;
 
+    float timer = 3f;
+    bool firstRun = true;
+
     public GenericWorldObject GetWorldObjectPrefab(ObjectType objectType)
     {
         return genericWorldObjectPrefabs[(int)objectType];
@@ -98,11 +101,24 @@ public class LevelLoader : MonoBehaviour
 
     public void RestartLevel()
     {
+        if(currentLevelIndex == 1)
+        {
+            firstRun = true;
+            timer = 3f;
+        }
         Init(levels[currentLevelIndex - 1].file);
     }
 
     public void LoadNextLevel()
     {
+        if (firstRun)
+        {
+            GameManager.main.ShowToolTip(
+                "OUT OF THIS SMALL WORLD\nA Ludum Dare project by bradur",
+                tooltipSprite,
+                KeyColor.None
+            );
+        }
         if (currentLevelIndex < levels.Count)
         {
             Init(levels[currentLevelIndex].file);
@@ -175,15 +191,27 @@ public class LevelLoader : MonoBehaviour
     void Start()
     {
         LoadNextLevel();
-        GameManager.main.ShowToolTip (
-            "Hold " + KeyManager.main.GetKey(Action.Sprint) + " to sprint.\nPress " + KeyManager.main.GetKey(Action.OpenExitMenu) + " to open menu.",
-            tooltipSprite,
-            KeyColor.None
-        );
     }
 
     void Update()
     {
+        if(timer > 0f)
+        {
+            timer -= Time.deltaTime;
+            
+        } else if (firstRun)
+        {
+            firstRun = false;
+            GameManager.main.ShowToolTip(
+                "Arrow keys to move.\n" +
+                "Hold " + KeyManager.main.GetKey(Action.Sprint) + " to sprint.\n" +
+                "Press " + KeyManager.main.GetKey(Action.ToggleAudio) + " to mute audio.\n" +
+                "Press " + KeyManager.main.GetKey(Action.OpenExitMenu) + " to open menu.",
+                tooltipSprite,
+                KeyColor.None
+            );
+        }
+        
 
     }
 }

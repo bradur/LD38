@@ -50,7 +50,7 @@
     - [x] Item pick up
     - [x] Use axe
     - [x] Use key
-    - [ ] Open door
+    - [x] Open door
     - [x] Walk through wormhole
     - [ ] Swim
     - [ ] Walk on grass ?

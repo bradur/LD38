@@ -147,7 +147,6 @@ public class GenericWorldObject : MonoBehaviour
     public void ChopDownTree()
     {
         toBeDestroyed = true;
-        SoundManager.main.PlaySound(SoundType.OpenDoor);
         Destroy(gameObject);
     }
 

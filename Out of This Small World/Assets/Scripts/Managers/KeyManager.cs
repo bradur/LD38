@@ -15,7 +15,8 @@ public enum Action
     Exit,
     Restart,
     ToggleAudio,
-    ToggleTooltips
+    ToggleTooltips,
+    ToggleInfo
 }
 
 public class KeyManager : MonoBehaviour {

@@ -19,7 +19,7 @@
    <property name="Type" type="int" value="2"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt0jEKACAMQ9GS+x/a1aFgY2op2EAHl/8WYWbYTh2Cl7EuToWhWtF+Z4PpMwbbHePO/dWA8x4jx1D3un8ysjaG3q/4T6rh9RawqgIb
+   eJzt0jEKADAIQ9Hg/Q/dtUOh2qTikIDrf4sBILZjF8lTbIrTYbBWtj/ZqPQrRrVr4821YUNtsPvdvxmq2eD7Hf/EGqfeAnRKAgs=
   </data>
  </layer>
  <layer name="Wall" width="25" height="25">
@@ -27,7 +27,7 @@
    <property name="Type" type="int" value="3"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFtAAsONijdiDMQsaExMm1gxpqRu0YWnYQgym1gxpqRood6OFO7fgYBaNgJAMAQOAAxQ==
+   eJxjYBgFtAAsONijdiDMQsaExMm1gxpqRu0YWnYQgym1gxQ1LFjERpId6OGOLz7IsYMSd4yCUTDUAQDyIAD5
   </data>
  </layer>
  <objectgroup name="Objects">
@@ -125,7 +125,7 @@
     <property name="Type" type="int" value="9"/>
    </properties>
   </object>
-  <object id="248" name="Switch" gid="25" x="1344" y="960" width="64" height="64">
+  <object id="248" name="Switch" gid="25" x="1344" y="1024" width="64" height="64">
    <properties>
     <property name="Color" type="int" value="1"/>
     <property name="Reusable" type="int" value="1"/>
@@ -133,7 +133,7 @@
     <property name="Type" type="int" value="3"/>
    </properties>
   </object>
-  <object id="249" name="SwitchWall" gid="17" x="1344" y="1088" width="64" height="64">
+  <object id="249" name="SwitchWall" gid="17" x="1344" y="1152" width="64" height="64">
    <properties>
     <property name="Color" type="int" value="1"/>
     <property name="SwitchId" type="int" value="2"/>

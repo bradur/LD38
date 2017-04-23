@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioSource themeSong;
 
+    [SerializeField]
+    private GameObject info;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -45,6 +48,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void ToggleInfo()
+    {
+        info.SetActive(!info.activeSelf);
     }
 
     private void OnLevelWasLoaded(int level)
@@ -183,6 +191,10 @@ public class GameManager : MonoBehaviour
                 themeSong.Play();
             }
             SoundManager.main.Toggle();
+        }
+        if (Input.GetKeyUp(KeyManager.main.GetKey(Action.ToggleInfo)))
+        {
+            ToggleInfo();
         }
     }
 }

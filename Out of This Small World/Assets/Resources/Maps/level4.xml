@@ -79,12 +79,12 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="250" name="Tree" gid="21" x="192" y="768" width="64" height="64">
+  <object id="250" name="Tree" gid="21" x="198.5" y="775.5" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="252" name="Tree" gid="21" x="192" y="704" width="64" height="64">
+  <object id="252" name="Tree" gid="21" x="200" y="718.5" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
