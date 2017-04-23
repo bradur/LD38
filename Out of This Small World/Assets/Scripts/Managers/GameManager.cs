@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<Color> keyColors = new List<Color>();
 
+    [SerializeField]
     private Sprite exitSprite;
 
     private bool waitingForExitKey = false;
@@ -129,6 +130,11 @@ public class GameManager : MonoBehaviour
     {
     }
 
+    public void StartWaitingForExitKey()
+    {
+        waitingForExitKey = true;
+    }
+
     public void StopWaitingForExitKey()
     {
         waitingForExitKey = false;
@@ -138,13 +144,25 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyManager.main.GetKey(Action.OpenExitMenu)))
         {
-            ShowToolTip("Press " + KeyManager.main.GetKey(Action.Exit) + " to quit.", exitSprite, KeyColor.None);
+            ShowToolTip(
+                "Press " + KeyManager.main.GetKey(Action.Exit) + " to quit or " + KeyManager.main.GetKey(Action.Restart) + " to restart level.",
+                exitSprite,
+                KeyColor.None
+            );
             waitingForExitKey = true;
         }
-        if (waitingForExitKey && Input.GetKeyUp(KeyManager.main.GetKey(Action.Exit)))
+        if (waitingForExitKey)
         {
-            Logger.Log("QUIT!");
-            Application.Quit();
+            if (Input.GetKeyUp(KeyManager.main.GetKey(Action.Exit)))
+            {
+                Application.Quit();
+            }
+            if (Input.GetKeyUp(KeyManager.main.GetKey(Action.Restart)))
+            {
+                uiManager.ClearInventory();
+                uiManager.KillToolTip();
+                levelLoader.RestartLevel();
+            }
         }
 
     }

@@ -379,7 +379,7 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="140" name="Tree" gid="21" x="932" y="1399" width="64" height="64">
+  <object id="140" name="Tree" gid="21" x="896" y="1408" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
@@ -399,7 +399,7 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="144" name="Tree" gid="21" x="947" y="1361" width="64" height="64">
+  <object id="144" name="Tree" gid="21" x="896" y="1344" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>

@@ -12,7 +12,8 @@ public enum Action
     UseKeyOnDoor,
     Sprint,
     OpenExitMenu,
-    Exit
+    Exit,
+    Restart
 }
 
 public class KeyManager : MonoBehaviour {

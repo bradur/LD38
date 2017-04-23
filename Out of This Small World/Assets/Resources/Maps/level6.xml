@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="64" tileheight="64" nextobjectid="511">
+ <properties>
+  <property name="Title" value="Firstworld"/>
+ </properties>
+ <tileset firstgid="1" name="textures" tilewidth="64" tileheight="64" tilecount="64" columns="8">
+  <image source="../../Images/textures.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Ground" width="25" height="25">
+  <properties>
+   <property name="Type" type="int" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYBzFo3iYYWYS8agdo3aM2jFqx0DZMYpHMbkYAEFnA5I=
+  </data>
+ </layer>
+ <layer name="Water" width="25" height="25">
+  <properties>
+   <property name="Type" type="int" value="2"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYmBgYELC1ABMWDAtwagdo3YMdTtoZQ898uGoHaN20AoMt3w+agd+c2mZpgbKDlq3rwAHOQCt
+  </data>
+ </layer>
+ <layer name="Wall" width="25" height="25">
+  <properties>
+   <property name="Type" type="int" value="3"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B+gAUHJiRHqh20VI+shxh/UMMOaqgjRi++uKGmHaTIk2MHpeqI0UsPf9AjPihVR0gvrfMHrdTD9NC6vBoFo4ASAADqvgFp
+  </data>
+ </layer>
+ <objectgroup name="Objects">
+  <object id="14" name="Start" gid="64" x="768" y="1344" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="22" name="YellowKey" gid="41" x="1472" y="128" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="1"/>
+    <property name="Type" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="23" name="YellowDoor" gid="17" x="768" y="1216" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="1"/>
+    <property name="Locked" type="int" value="1"/>
+    <property name="Type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="55" name="SwitchWall" gid="17" x="448" y="576" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="1"/>
+    <property name="SwitchId" type="int" value="1"/>
+    <property name="Type" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="224" name="WormHole" gid="37" x="768" y="832" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="232" name="Tree" gid="21" x="192" y="1216" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="315" name="Axe" gid="42" x="320" y="896" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="316" name="Axe" gid="42" x="320" y="960" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="338" name="Switch" gid="25" x="448" y="768" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="1"/>
+    <property name="SwitchId" type="int" value="1"/>
+    <property name="Type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="347" name="PurpleDoor" gid="17" x="768" y="1088" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="2"/>
+    <property name="Locked" type="int" value="1"/>
+    <property name="Type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="348" name="RedDoor" gid="17" x="640" y="832" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="3"/>
+    <property name="Locked" type="int" value="1"/>
+    <property name="Type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="349" name="PurpleKey" gid="41" x="64" y="1536" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="2"/>
+    <property name="Type" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="351" name="RedKey" gid="41" x="768" y="128" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="3"/>
+    <property name="Type" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="352" name="Tree" gid="21" x="192" y="1088" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="353" name="Tree" gid="21" x="192" y="1024" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="354" name="Tree" gid="21" x="192" y="960" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="355" name="Tree" gid="21" x="192" y="896" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="356" name="Tree" gid="21" x="192" y="768" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="357" name="Tree" gid="21" x="192" y="640" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="358" name="Tree" gid="21" x="192" y="512" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="359" name="Tree" gid="21" x="192" y="384" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="360" name="Tree" gid="21" x="192" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="361" name="Tree" gid="21" x="192" y="192" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="362" name="Tree" gid="21" x="192" y="128" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="363" name="Tree" gid="21" x="192" y="320" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="364" name="Tree" gid="21" x="192" y="448" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="365" name="Tree" gid="21" x="192" y="576" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="366" name="Tree" gid="21" x="192" y="704" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="367" name="Tree" gid="21" x="192" y="832" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="368" name="Tree" gid="21" x="192" y="1152" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="369" name="Tree" gid="21" x="192" y="1280" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="370" name="Tree" gid="21" x="192" y="1344" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="371" name="Tree" gid="21" x="192" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="372" name="Tree" gid="21" x="192" y="1472" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="373" name="Tree" gid="21" x="192" y="1536" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="376" name="Tree" gid="21" x="1344" y="768" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="378" name="Tree" gid="21" x="1344" y="640" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="379" name="Tree" gid="21" x="1344" y="1152" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="380" name="Tree" gid="21" x="1344" y="384" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="381" name="Tree" gid="21" x="1344" y="1280" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="382" name="Tree" gid="21" x="1344" y="1344" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="383" name="Tree" gid="21" x="1344" y="448" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="384" name="Tree" gid="21" x="1344" y="192" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="385" name="Tree" gid="21" x="1344" y="512" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="386" name="Tree" gid="21" x="1344" y="576" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="387" name="Tree" gid="21" x="1344" y="832" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="388" name="Tree" gid="21" x="1344" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="390" name="Tree" gid="21" x="1344" y="1216" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="391" name="Tree" gid="21" x="1344" y="128" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="394" name="Tree" gid="21" x="1344" y="320" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="395" name="Tree" gid="21" x="1344" y="1024" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="396" name="Tree" gid="21" x="1344" y="1088" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="397" name="Tree" gid="21" x="1344" y="960" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="398" name="Tree" gid="21" x="1344" y="704" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="400" name="Tree" gid="21" x="1344" y="896" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="429" name="Tree" gid="21" x="64" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="430" name="Tree" gid="21" x="128" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="432" name="Tree" gid="21" x="256" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="433" name="Tree" gid="21" x="320" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="434" name="Tree" gid="21" x="384" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="435" name="Tree" gid="21" x="448" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="436" name="Tree" gid="21" x="512" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="437" name="Tree" gid="21" x="576" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="438" name="Tree" gid="21" x="640" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="439" name="Tree" gid="21" x="704" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="440" name="Tree" gid="21" x="768" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="441" name="Tree" gid="21" x="832" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="442" name="Tree" gid="21" x="896" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="443" name="Tree" gid="21" x="960" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="444" name="Tree" gid="21" x="1024" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="445" name="Tree" gid="21" x="1088" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="446" name="Tree" gid="21" x="1152" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="447" name="Tree" gid="21" x="1216" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="448" name="Tree" gid="21" x="1280" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="449" name="Tree" gid="21" x="1408" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="450" name="Tree" gid="21" x="1472" y="256" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="453" name="Tree" gid="21" x="256" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="454" name="Tree" gid="21" x="128" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="455" name="Tree" gid="21" x="64" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="457" name="Tree" gid="21" x="320" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="458" name="Tree" gid="21" x="384" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="459" name="Tree" gid="21" x="448" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="460" name="Tree" gid="21" x="512" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="461" name="Tree" gid="21" x="576" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="462" name="Tree" gid="21" x="640" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="463" name="Tree" gid="21" x="704" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="464" name="Tree" gid="21" x="768" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="465" name="Tree" gid="21" x="832" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="466" name="Tree" gid="21" x="896" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="467" name="Tree" gid="21" x="960" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="468" name="Tree" gid="21" x="1024" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="469" name="Tree" gid="21" x="1088" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="470" name="Tree" gid="21" x="1152" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="471" name="Tree" gid="21" x="1216" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="472" name="Tree" gid="21" x="1280" y="1408" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="492" name="PurpleDoor" gid="17" x="768" y="576" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="2"/>
+    <property name="Locked" type="int" value="1"/>
+    <property name="Type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="493" name="RedDoor" gid="17" x="896" y="832" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="3"/>
+    <property name="Locked" type="int" value="1"/>
+    <property name="Type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="494" name="YellowDoor" gid="17" x="768" y="448" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="1"/>
+    <property name="Locked" type="int" value="1"/>
+    <property name="Type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="495" name="Switch" gid="25" x="448" y="1088" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="2"/>
+    <property name="SwitchId" type="int" value="2"/>
+    <property name="Type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="497" name="SwitchWall" gid="17" x="448" y="960" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="2"/>
+    <property name="SwitchId" type="int" value="2"/>
+    <property name="Type" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="500" name="SwitchWall" gid="17" x="768" y="640" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="1"/>
+    <property name="SwitchId" type="int" value="1"/>
+    <property name="SwitchedOn" type="int" value="1"/>
+    <property name="Type" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="501" name="SwitchWall" gid="17" x="960" y="832" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="1"/>
+    <property name="SwitchId" type="int" value="1"/>
+    <property name="Type" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="502" name="SwitchWall" gid="17" x="768" y="1024" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="2"/>
+    <property name="SwitchId" type="int" value="2"/>
+    <property name="Type" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="503" name="Switch" gid="25" x="704" y="640" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="3"/>
+    <property name="SwitchId" type="int" value="3"/>
+    <property name="Type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="505" name="SwitchWall" gid="17" x="576" y="704" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="3"/>
+    <property name="SwitchId" type="int" value="3"/>
+    <property name="Type" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="506" name="Switch" gid="25" x="896" y="640" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="2"/>
+    <property name="SwitchId" type="int" value="2"/>
+    <property name="Type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="508" name="Axe" gid="42" x="1408" y="128" width="64" height="64">
+   <properties>
+    <property name="Type" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="509" name="PurpleKey" gid="41" x="832" y="640" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="2"/>
+    <property name="Type" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="510" name="SwitchWall" gid="17" x="576" y="960" width="64" height="64">
+   <properties>
+    <property name="Color" type="int" value="3"/>
+    <property name="SwitchId" type="int" value="3"/>
+    <property name="SwitchedOn" type="int" value="1"/>
+    <property name="Type" type="int" value="9"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

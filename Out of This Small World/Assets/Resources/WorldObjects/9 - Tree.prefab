@@ -88,10 +88,16 @@ MonoBehaviour:
     keyColorType: 0
     keyColor: {r: 1, g: 1, b: 1, a: 1}
     objectSprite: {fileID: 21300032, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
+    switchSprite: {fileID: 0}
     name: Tree
     switchId: -1
+    switchedOn: 0
     pickable: 0
     reusable: 0
+  sr: {fileID: 0}
+  bc: {fileID: 0}
+  firstUse: 1
+  switchedOffColor: {r: 0, g: 0, b: 0, a: 0}
   highLight: {fileID: 212045729604802502}
 --- !u!135 &135556138256192190
 SphereCollider:
@@ -103,7 +109,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.74
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212013843359729546
 SpriteRenderer:

@@ -10,8 +10,8 @@ using TiledSharp;
 public class GenericWorldObject : MonoBehaviour
 {
 
-    [SerializeField]
-    private GenericObjectStruct genericObjectStruct;
+    [HideInInspector]
+    public GenericObjectStruct genericObjectStruct;
 
     public GenericObjectStruct GenericObjectStruct { get { return genericObjectStruct; } }
     private void OnTriggerEnter(Collider collider)
@@ -37,8 +37,10 @@ public class GenericWorldObject : MonoBehaviour
     }
 
     private bool toBeDestroyed = false;
-    private SpriteRenderer sr = null;
-    private BoxCollider bc = null;
+    [HideInInspector]
+    public SpriteRenderer sr = null;
+    [HideInInspector]
+    public BoxCollider bc = null;
 
     [HideInInspector]
     public bool firstUse = true;
@@ -152,7 +154,6 @@ public class GenericWorldObject : MonoBehaviour
         
         if (genericObjectStruct.objectType == ObjectType.SwitchWall && switchId == genericObjectStruct.switchId)
         {
-            Logger.Log("Switching: " + genericObjectStruct.keyColorType + " with id " + switchId);
             if (sr == null)
             {
                 sr = GetComponent<SpriteRenderer>();
@@ -183,7 +184,7 @@ public class GenericWorldObject : MonoBehaviour
         {
             if (firstUse || genericObjectStruct.reusable)
             {
-                GameManager.main.ToggleSwitch(genericObjectStruct.switchId);
+                
                 if (sr == null)
                 {
                     sr = GetComponent<SpriteRenderer>();
@@ -209,6 +210,7 @@ public class GenericWorldObject : MonoBehaviour
                     sr.sprite = genericObjectStruct.objectSprite;
                 }
                 firstUse = false;
+                GameManager.main.ToggleSwitch(genericObjectStruct.switchId);
             }
             else
             {

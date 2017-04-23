@@ -88,9 +88,17 @@ public class LevelLoader : MonoBehaviour
 
     private float layerDistance = 0.005f;
 
+    [SerializeField]
+    private Sprite tooltipSprite;
+
     public GenericWorldObject GetWorldObjectPrefab(ObjectType objectType)
     {
         return genericWorldObjectPrefabs[(int)objectType];
+    }
+
+    public void RestartLevel()
+    {
+        Init(levels[currentLevelIndex - 1].file);
     }
 
     public void LoadNextLevel()
@@ -99,6 +107,14 @@ public class LevelLoader : MonoBehaviour
         {
             Init(levels[currentLevelIndex].file);
             currentLevelIndex += 1;
+        } else
+        {
+            GameManager.main.ShowToolTip(
+                "Congratulations! You beat the game! Press Q to quit.",
+                tooltipSprite,
+                KeyColor.None
+            );
+            GameManager.main.StartWaitingForExitKey();
         }
     }
 
@@ -159,6 +175,11 @@ public class LevelLoader : MonoBehaviour
     void Start()
     {
         LoadNextLevel();
+        GameManager.main.ShowToolTip (
+            "Hold " + KeyManager.main.GetKey(Action.Sprint) + " to sprint.\nPress " + KeyManager.main.GetKey(Action.OpenExitMenu) + " to open menu.",
+            tooltipSprite,
+            KeyColor.None
+        );
     }
 
     void Update()
