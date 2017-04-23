@@ -9,7 +9,8 @@ public enum Action
 {
     None,
     SwingAxe,
-    UseKeyOnDoor
+    UseKeyOnDoor,
+    Sprint
 }
 
 public class KeyManager : MonoBehaviour {

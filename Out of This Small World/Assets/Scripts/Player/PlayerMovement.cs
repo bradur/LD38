@@ -11,9 +11,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 direction;
     private Rigidbody rigidBody;
 
-    [Range(20f, 300f)]
+    [Range(20f, 500f)]
     [SerializeField]
-    private float forwardSpeed = 1f;
+    private float forwardSpeed = 350f;
+
+    [Range(20f, 800f)]
+    [SerializeField]
+    private float sprintSpeed = 600f;
 
     [Range(20f, 300f)]
     [SerializeField]
@@ -46,7 +50,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (verticalAxis > 0)
         {
-            rigidBody.AddForce(transform.right * forwardSpeed, ForceMode.Force);
+            float speed = forwardSpeed;
+            if (Input.GetKey(KeyManager.main.GetKey(Action.Sprint)))
+            {
+                speed = sprintSpeed;
+                Logger.Log(speed + "");
+            }
+            rigidBody.AddForce(transform.right * speed, ForceMode.Force);
         }
         else if (verticalAxis < 0)
         {
@@ -161,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
         {
             GenericWorldObject flippersObject = GameManager.main.GetWorldObjectPrefab(ObjectType.Flippers);
             GameManager.main.ShowToolTip(
-                "Find a pair of flippers.",
+                "Find a pair of flippers if you want to swim.",
                 flippersObject.GenericObjectStruct.objectSprite,
                 KeyColor.None
             );

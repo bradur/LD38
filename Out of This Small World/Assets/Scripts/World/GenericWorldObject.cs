@@ -40,7 +40,8 @@ public class GenericWorldObject : MonoBehaviour
     private SpriteRenderer sr = null;
     private BoxCollider bc = null;
     private bool firstUse = true;
-    private Color switchedOffColor;
+
+    public Color switchedOffColor;
 
     [SerializeField]
     private SpriteRenderer highLight;
@@ -59,18 +60,7 @@ public class GenericWorldObject : MonoBehaviour
         {
             genericObjectStruct.keyColorType = (KeyColor)Tools.IntParseFast(dict["Color"]);
             Color color = GameManager.main.GetKeyColor(genericObjectStruct.keyColorType);
-            if (genericObjectStruct.objectType == ObjectType.SwitchWall)
-            {
-                float h = 0;
-                float s = 0;
-                float v = 0;
-                Color.RGBToHSV(color, out h, out s, out v);
-                v = 0.5f;
-                s = 0.5f;
-                switchedOffColor = Color.HSVToRGB(h, s, v);
-            }
             genericObjectStruct.keyColor = color;
-
         }
         if (dict.ContainsKey("Reusable"))
         {
@@ -93,6 +83,23 @@ public class GenericWorldObject : MonoBehaviour
         }
         if (genericObjectStruct.objectType == ObjectType.SwitchWall)
         {
+            if (switchedOffColor == Color.black)
+            {
+                Color color = GameManager.main.GetKeyColor(genericObjectStruct.keyColorType);
+
+                float h = 0;
+                float s = 0;
+                float v = 0;
+                Color.RGBToHSV(color, out h, out s, out v);
+                v = 0.5f;
+                s = 0.5f;
+                if (genericObjectStruct.keyColorType == KeyColor.None)
+                {
+                    s = 0f;
+                }
+                switchedOffColor = Color.HSVToRGB(h, s, v);
+                Logger.Log("Switched off created: " + switchedOffColor);
+            }
             if (genericObjectStruct.switchedOn)
             {
                 if (sr == null)
@@ -159,6 +166,7 @@ public class GenericWorldObject : MonoBehaviour
             }
             else
             {
+                Logger.Log("COLOR FOR OFF " + switchedOffColor);
                 sr.color = switchedOffColor;
                 sr.sprite = genericObjectStruct.objectSprite;
             }

@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 300
+  sprintSpeed: 603
   backwardSpeed: 201
   rotationSpeed: 300
 --- !u!136 &833467586
@@ -405,7 +406,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!1 &850988352
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +934,8 @@ MonoBehaviour:
     action: 1
   - key: 305
     action: 2
+  - key: 303
+    action: 3
 --- !u!1 &1487893677
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +984,7 @@ MonoBehaviour:
   loopLevelLoader: {fileID: 874750614}
   levelLoader: {fileID: 1178904621}
   keyColors:
-  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0.9725491, b: 0, a: 1}
   - {r: 0.6156863, g: 0, b: 1, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}

@@ -106,6 +106,7 @@ MonoBehaviour:
     switchedOn: 0
     pickable: 0
     reusable: 0
+  switchedOffColor: {r: 0, g: 0, b: 0, a: 1}
   highLight: {fileID: 212440925830284196}
 --- !u!212 &212013843359729546
 SpriteRenderer:
