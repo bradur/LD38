@@ -689,7 +689,7 @@ MonoBehaviour:
   - file: {fileID: 4900000, guid: f13ce51badae1bc4d8df7bbe42f126ab, type: 3}
   - file: {fileID: 4900000, guid: 484e0d8f10fb65b489fac485577f4570, type: 3}
   - file: {fileID: 4900000, guid: d34ea809cf4896f4dbc0f5a10f56b776, type: 3}
-  currentLevelIndex: 0
+  currentLevelIndex: 1
 --- !u!1 &1226973953
 GameObject:
   m_ObjectHideFlags: 0

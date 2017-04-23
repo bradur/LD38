@@ -42,11 +42,6 @@ public class GenericWorldObject : MonoBehaviour
     private bool firstUse = true;
 
     [SerializeField]
-    private Sprite switchSprite;
-
-    private Sprite originalSprite;
-
-    [SerializeField]
     private SpriteRenderer highLight;
 
     public void Init(PropertyDict dict)
@@ -54,6 +49,10 @@ public class GenericWorldObject : MonoBehaviour
         if (dict.ContainsKey("SwitchId"))
         {
             genericObjectStruct.switchId = Tools.IntParseFast(dict["SwitchId"]);
+        }
+        if (dict.ContainsKey("SwitchedOn"))
+        {
+            genericObjectStruct.switchedOn = Tools.IntParseFast(dict["SwitchedOn"]) == 1;
         }
         if (dict.ContainsKey("Color"))
         {
@@ -79,6 +78,20 @@ public class GenericWorldObject : MonoBehaviour
         {
             GameManager.main.SpawnPlayer(transform.position);
         }
+        if (genericObjectStruct.objectType == ObjectType.SwitchWall && genericObjectStruct.switchedOn)
+        {
+            if (sr == null)
+            {
+                sr = GetComponent<SpriteRenderer>();
+            }
+            if (bc == null)
+            {
+                bc = GetComponent<BoxCollider>();
+            }
+            bc.enabled = true;
+            //sr.enabled = true;
+            sr.sprite = genericObjectStruct.switchSprite;
+        }
     }
 
     public void HighLight()
@@ -102,6 +115,7 @@ public class GenericWorldObject : MonoBehaviour
 
     public void ChopDownTree()
     {
+        toBeDestroyed = true;
         Destroy(gameObject);
     }
 
@@ -109,33 +123,20 @@ public class GenericWorldObject : MonoBehaviour
     {
         if (genericObjectStruct.objectType == ObjectType.SwitchWall && switchId == genericObjectStruct.switchId)
         {
-            if (firstUse || genericObjectStruct.reusable)
-            {
 
-                if (sr == null)
-                {
-                    sr = GetComponent<SpriteRenderer>();
-                }
-                if (bc == null)
-                {
-                    bc = GetComponent<BoxCollider>();
-                }
-                if (!bc.enabled)
-                {
-                    GameManager.main.ShowToolTip(
-                        "You walked on something and a wall sprung out from the ground!",
-                        genericObjectStruct.objectSprite,
-                        genericObjectStruct.keyColorType
-                    );
-                }
-                bc.enabled = !bc.enabled;
-                sr.enabled = !sr.enabled;
-                firstUse = false;
-            }
-            else
+            if (sr == null)
             {
-
+                sr = GetComponent<SpriteRenderer>();
             }
+            if (bc == null)
+            {
+                bc = GetComponent<BoxCollider>();
+            }
+            bc.enabled = !bc.enabled;
+            //sr.enabled = !sr.enabled;
+            sr.sprite = sr.sprite != genericObjectStruct.switchSprite ? genericObjectStruct.switchSprite : genericObjectStruct.objectSprite;
+            firstUse = false;
+
         }
     }
 
@@ -143,22 +144,41 @@ public class GenericWorldObject : MonoBehaviour
     {
         if (genericObjectStruct.switchId != -1)
         {
-            if(firstUse || genericObjectStruct.reusable)
+            if (firstUse || genericObjectStruct.reusable)
             {
                 GameManager.main.ToggleSwitch(genericObjectStruct.switchId);
                 if (sr == null)
                 {
                     sr = GetComponent<SpriteRenderer>();
-                    originalSprite = sr.sprite;
+                    
                 }
-                sr.sprite = sr.sprite != switchSprite ? switchSprite : originalSprite;
+                GenericWorldObject worldObject = GameManager.main.GetWorldObjectPrefab(ObjectType.SwitchWall);
+                if (sr.sprite == genericObjectStruct.objectSprite)
+                {
+                    GameManager.main.ShowToolTip(
+                        "You walked on a switch!",
+                        worldObject.GenericObjectStruct.switchSprite,
+                        genericObjectStruct.keyColorType
+                    );
+                    sr.sprite = genericObjectStruct.switchSprite;
+                }
+                else
+                {
+                    GameManager.main.ShowToolTip(
+                        "The switch reset!",
+                        worldObject.GenericObjectStruct.objectSprite,
+                        genericObjectStruct.keyColorType
+                    );
+                    sr.sprite = genericObjectStruct.objectSprite;
+                }
                 firstUse = false;
-            } else
+            }
+            else
             {
                 GameManager.main.ShowToolTip(
                     "The switch doesn't seem to work anymore...",
-                    switchSprite,
-                    KeyColor.None
+                    genericObjectStruct.switchSprite,
+                    genericObjectStruct.keyColorType
                 );
             }
         }
@@ -169,6 +189,10 @@ public class GenericWorldObject : MonoBehaviour
         if (toBeDestroyed)
         {
             if (genericObjectStruct.objectType == ObjectType.Door)
+            {
+                GameManager.main.UpdateItems();
+            }
+            else if (genericObjectStruct.objectType == ObjectType.Tree)
             {
                 GameManager.main.UpdateItems();
             }
@@ -236,8 +260,10 @@ public class GenericObjectStruct : System.Object
     public KeyColor keyColorType;
     public Color keyColor;
     public Sprite objectSprite;
+    public Sprite switchSprite;
     public string name;
     public int switchId = -1;
+    public bool switchedOn = false;
     public bool pickable = true;
     public bool reusable = false;
 }

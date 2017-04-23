@@ -737,30 +737,5 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="219" name="Axe" gid="42" x="960" y="968" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="220" name="Axe" gid="42" x="1065" y="886" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="221" name="Axe" gid="42" x="935" y="843" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="222" name="Axe" gid="42" x="829" y="846" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="6"/>
-   </properties>
-  </object>
-  <object id="223" name="Axe" gid="42" x="859" y="917" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="6"/>
-   </properties>
-  </object>
  </objectgroup>
 </map>

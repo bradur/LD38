@@ -99,12 +99,13 @@ MonoBehaviour:
     objectType: 9
     keyColorType: 0
     keyColor: {r: 1, g: 1, b: 1, a: 1}
-    objectSprite: {fileID: 21300028, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
+    objectSprite: {fileID: 21300050, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
+    switchSprite: {fileID: 21300052, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
     name: Switch Wall
     switchId: -1
+    switchedOn: 0
     pickable: 0
     reusable: 0
-  switchSprite: {fileID: 0}
   highLight: {fileID: 212440925830284196}
 --- !u!212 &212013843359729546
 SpriteRenderer:
@@ -112,7 +113,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965785845264116}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1

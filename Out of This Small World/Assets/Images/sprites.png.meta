@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2c8d1049b6feeb54885f40e0b52a47ed
-timeCreated: 1492955897
+timeCreated: 1492959222
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -29,6 +29,8 @@ TextureImporter:
     21300044: sprites_11
     21300046: sprites_12
     21300048: sprites_13
+    21300050: switch_off
+    21300052: switch_on
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -297,6 +299,32 @@ TextureImporter:
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: switch_off
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: switch_on
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

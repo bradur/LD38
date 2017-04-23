@@ -100,11 +100,12 @@ MonoBehaviour:
     keyColorType: 0
     keyColor: {r: 1, g: 1, b: 1, a: 1}
     objectSprite: {fileID: 21300034, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
+    switchSprite: {fileID: 21300036, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
     name: Switch
     switchId: -1
+    switchedOn: 0
     pickable: 0
     reusable: 0
-  switchSprite: {fileID: 21300036, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
   highLight: {fileID: 212793861286010940}
 --- !u!212 &212793861286010940
 SpriteRenderer:
