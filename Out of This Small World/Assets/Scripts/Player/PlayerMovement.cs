@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GameManager.main.InventoryUseItem(item);
                     GameManager.main.ShowToolTip(
-                        "You swung your axe and chopped down the tree!",
+                        "You chopped down the tree. The axe was so poorly made it broke!",
                         targetTree.GenericObjectStruct.objectSprite,
                         targetTree.GenericObjectStruct.keyColorType
                     );

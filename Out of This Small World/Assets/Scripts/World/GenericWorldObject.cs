@@ -102,6 +102,7 @@ public class GenericWorldObject : MonoBehaviour
         {
             if (firstUse || genericObjectStruct.reusable)
             {
+
                 if (sr == null)
                 {
                     sr = GetComponent<SpriteRenderer>();
@@ -110,10 +111,19 @@ public class GenericWorldObject : MonoBehaviour
                 {
                     bc = GetComponent<BoxCollider>();
                 }
+                if (!bc.enabled)
+                {
+                    GameManager.main.ShowToolTip(
+                        "You walked on something and a wall sprung out from the ground!",
+                        genericObjectStruct.objectSprite,
+                        genericObjectStruct.keyColorType
+                    );
+                }
                 bc.enabled = !bc.enabled;
                 sr.enabled = !sr.enabled;
                 firstUse = false;
-            } else
+            }
+            else
             {
 
             }
@@ -132,21 +142,59 @@ public class GenericWorldObject : MonoBehaviour
     {
         if (toBeDestroyed)
         {
-            if(genericObjectStruct.objectType == ObjectType.Door)
+            if (genericObjectStruct.objectType == ObjectType.Door)
             {
                 GameManager.main.UpdateItems();
-            } else
+            }
+            else
             {
                 GameManager.main.InventoryGain(genericObjectStruct);
             }
-            
+
         }
     }
 
     private void Pickup()
     {
+        GenericObjectStruct itemStruct = null;
+        if (genericObjectStruct.objectType == ObjectType.Key)
+        {
+            itemStruct = GameManager.main.InventoryGetKey(genericObjectStruct.keyColorType);
+        }
+        else
+        {
+            PlayerInventoryItem item = GameManager.main.InventoryGetItem(genericObjectStruct.objectType);
+            if (item != null)
+            {
+                itemStruct = item.GenericObjectStruct;
+            }
+        }
+
+        string article = "a ";
+        if (genericObjectStruct.objectType == ObjectType.Axe)
+        {
+            article = "an ";
+        }
+        else if (genericObjectStruct.objectType == ObjectType.Flippers)
+        {
+            article = "";
+        }
+
+        if (itemStruct != null && itemStruct.keyColorType == genericObjectStruct.keyColorType)
+        {
+
+            if (genericObjectStruct.objectType == ObjectType.Flippers)
+            {
+                article = "another pair of ";
+            }
+            else
+            {
+                article = "another ";
+            }
+        }
+        string itemString = genericObjectStruct.objectType.ToString().ToLower();
         GameManager.main.ShowToolTip(
-            "You found " + (genericObjectStruct.keyColorType != KeyColor.None ? genericObjectStruct.keyColorType + " " : "") + genericObjectStruct.objectType + "!",
+            "You found " + article + (genericObjectStruct.keyColorType != KeyColor.None ? genericObjectStruct.keyColorType + " " : "") + itemString + "!",
             genericObjectStruct.objectSprite,
             genericObjectStruct.keyColorType
         );
