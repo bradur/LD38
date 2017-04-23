@@ -10,7 +10,9 @@ public enum Action
     None,
     SwingAxe,
     UseKeyOnDoor,
-    Sprint
+    Sprint,
+    OpenExitMenu,
+    Exit
 }
 
 public class KeyManager : MonoBehaviour {

@@ -32,6 +32,7 @@ public class UIToolTip : MonoBehaviour {
 
     public void Kill()
     {
+        GameManager.main.StopWaitingForExitKey();
         Destroy(gameObject);
     }
 

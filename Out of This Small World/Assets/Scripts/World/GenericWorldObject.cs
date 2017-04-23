@@ -39,7 +39,9 @@ public class GenericWorldObject : MonoBehaviour
     private bool toBeDestroyed = false;
     private SpriteRenderer sr = null;
     private BoxCollider bc = null;
-    private bool firstUse = true;
+
+    [HideInInspector]
+    public bool firstUse = true;
 
     public Color switchedOffColor;
 
@@ -98,7 +100,6 @@ public class GenericWorldObject : MonoBehaviour
                     s = 0f;
                 }
                 switchedOffColor = Color.HSVToRGB(h, s, v);
-                Logger.Log("Switched off created: " + switchedOffColor);
             }
             if (genericObjectStruct.switchedOn)
             {
@@ -148,9 +149,10 @@ public class GenericWorldObject : MonoBehaviour
 
     public void ToggleSwitchWall(int switchId)
     {
+        
         if (genericObjectStruct.objectType == ObjectType.SwitchWall && switchId == genericObjectStruct.switchId)
         {
-
+            Logger.Log("Switching: " + genericObjectStruct.keyColorType + " with id " + switchId);
             if (sr == null)
             {
                 sr = GetComponent<SpriteRenderer>();
@@ -166,7 +168,6 @@ public class GenericWorldObject : MonoBehaviour
             }
             else
             {
-                Logger.Log("COLOR FOR OFF " + switchedOffColor);
                 sr.color = switchedOffColor;
                 sr.sprite = genericObjectStruct.objectSprite;
             }

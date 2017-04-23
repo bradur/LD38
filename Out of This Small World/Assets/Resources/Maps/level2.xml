@@ -126,7 +126,7 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="235" name="Tree" gid="21" x="496.667" y="358.667" width="64" height="64">
+  <object id="235" name="Tree" gid="21" x="516" y="340.667" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
@@ -161,12 +161,12 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="242" name="Tree" gid="21" x="628" y="370" width="64" height="64">
+  <object id="242" name="Tree" gid="21" x="640" y="320" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="243" name="Tree" gid="21" x="633.333" y="326.667" width="64" height="64">
+  <object id="243" name="Tree" gid="21" x="612" y="362.667" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>

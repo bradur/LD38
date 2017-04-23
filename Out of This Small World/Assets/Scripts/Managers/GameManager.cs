@@ -5,7 +5,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     public static GameManager main;
 
@@ -22,6 +23,10 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private List<Color> keyColors = new List<Color>();
+
+    private Sprite exitSprite;
+
+    private bool waitingForExitKey = false;
 
     void Awake()
     {
@@ -57,6 +62,7 @@ public class GameManager : MonoBehaviour {
 
     public void ShowToolTip(string message, Sprite sprite, KeyColor color)
     {
+        waitingForExitKey = false;
         uiManager.ShowToolTip(message, sprite, color);
     }
 
@@ -117,11 +123,29 @@ public class GameManager : MonoBehaviour {
 
     public void PlayerIsSwimming()
     {
-        Logger.Log("Swimming!");
     }
 
     public void PlayerIsLeavingAWaterTile()
     {
-        Logger.Log("Not swimming?");
+    }
+
+    public void StopWaitingForExitKey()
+    {
+        waitingForExitKey = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyManager.main.GetKey(Action.OpenExitMenu)))
+        {
+            ShowToolTip("Press " + KeyManager.main.GetKey(Action.Exit) + " to quit.", exitSprite, KeyColor.None);
+            waitingForExitKey = true;
+        }
+        if (waitingForExitKey && Input.GetKeyUp(KeyManager.main.GetKey(Action.Exit)))
+        {
+            Logger.Log("QUIT!");
+            Application.Quit();
+        }
+
     }
 }

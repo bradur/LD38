@@ -54,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyManager.main.GetKey(Action.Sprint)))
             {
                 speed = sprintSpeed;
-                Logger.Log(speed + "");
             }
             rigidBody.AddForce(transform.right * speed, ForceMode.Force);
         }
