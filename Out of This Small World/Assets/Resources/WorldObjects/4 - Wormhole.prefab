@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 65546432394612238}
   - component: {fileID: 114546894370019574}
   - component: {fileID: 212448928139078916}
+  - component: {fileID: 95893866638926504}
   m_Layer: 0
   m_Name: 4 - Wormhole
   m_TagString: Untagged
@@ -84,6 +85,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95893866638926504
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965785845264116}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f26fe7972d8eb824cb4a4348013a8ee4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114546894370019574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,11 +117,12 @@ MonoBehaviour:
     objectType: 4
     keyColorType: 0
     keyColor: {r: 1, g: 1, b: 1, a: 1}
-    objectSprite: {fileID: 21300036, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
+    objectSprite: {fileID: 21300038, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
     name: Wormhole
     switchId: -1
     pickable: 0
     reusable: 0
+  switchSprite: {fileID: 0}
   highLight: {fileID: 212224814382955476}
 --- !u!212 &212224814382955476
 SpriteRenderer:
@@ -177,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300038, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

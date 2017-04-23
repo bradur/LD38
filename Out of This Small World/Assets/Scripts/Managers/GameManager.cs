@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager main;
 
-
-    [SerializeField]
     private UIManager uiManager;
 
     [SerializeField]
@@ -31,12 +29,25 @@ public class GameManager : MonoBehaviour {
         if (GameObject.FindGameObjectsWithTag("GameManager").Length < 1)
         {
             gameObject.tag = "GameManager";
+            uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
             main = this;
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+    }
+
+    public void LoadNextLevel()
+    {
+        uiManager.ClearInventory();
+        uiManager.KillToolTip();
+        levelLoader.LoadNextLevel();
     }
 
     public GenericWorldObject GetWorldObjectPrefab(ObjectType objectType)

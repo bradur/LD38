@@ -12,6 +12,7 @@ TagManager:
   - TreeContainer
   - Tree
   - Door
+  - UIManager
   layers:
   - Default
   - TransparentFX

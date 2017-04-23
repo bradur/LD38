@@ -56,6 +56,16 @@ public class PlayerInventoryManager : MonoBehaviour {
         return null;
     }
 
+    public void ClearInventory()
+    {
+        for (int i = 0; i < items.Count; i += 1)
+        {
+            items[i].Kill();
+        }
+        items.Clear();
+        UpdatePositions();
+    }
+
     public PlayerInventoryItem GetItem(ObjectType objectType)
     {
         for (int i = 0; i < items.Count; i += 1)

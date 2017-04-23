@@ -28,6 +28,10 @@ public class GenericWorldObject : MonoBehaviour
                 {
                     ToggleSwitch();
                 }
+                else if (genericObjectStruct.objectType == ObjectType.Wormhole)
+                {
+                    GameManager.main.LoadNextLevel();
+                }
             }
         }
     }
@@ -36,6 +40,11 @@ public class GenericWorldObject : MonoBehaviour
     private SpriteRenderer sr = null;
     private BoxCollider bc = null;
     private bool firstUse = true;
+
+    [SerializeField]
+    private Sprite switchSprite;
+
+    private Sprite originalSprite;
 
     [SerializeField]
     private SpriteRenderer highLight;
@@ -134,7 +143,24 @@ public class GenericWorldObject : MonoBehaviour
     {
         if (genericObjectStruct.switchId != -1)
         {
-            GameManager.main.ToggleSwitch(genericObjectStruct.switchId);
+            if(firstUse || genericObjectStruct.reusable)
+            {
+                GameManager.main.ToggleSwitch(genericObjectStruct.switchId);
+                if (sr == null)
+                {
+                    sr = GetComponent<SpriteRenderer>();
+                    originalSprite = sr.sprite;
+                }
+                sr.sprite = sr.sprite != switchSprite ? switchSprite : originalSprite;
+                firstUse = false;
+            } else
+            {
+                GameManager.main.ShowToolTip(
+                    "The switch doesn't seem to work anymore...",
+                    switchSprite,
+                    KeyColor.None
+                );
+            }
         }
     }
 

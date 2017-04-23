@@ -99,11 +99,12 @@ MonoBehaviour:
     objectType: 1
     keyColorType: 0
     keyColor: {r: 1, g: 1, b: 1, a: 1}
-    objectSprite: {fileID: 21300044, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
+    objectSprite: {fileID: 21300046, guid: 2c8d1049b6feeb54885f40e0b52a47ed, type: 3}
     name: Spawn
     switchId: -1
     pickable: 0
     reusable: 0
+  switchSprite: {fileID: 0}
   highLight: {fileID: 212867508815400656}
 --- !u!212 &212335316642256746
 SpriteRenderer:

@@ -20,6 +20,11 @@ public class LoopLevelLoader : MonoBehaviour {
 
     public void Init (World initialWorld, int width, int height)
     {
+        maps = new World[3][] {
+            new World[] {null, null, null},
+            new World[] {null, null, null},
+            new World[] {null, null, null}
+        };
         currentWorld = initialWorld;
         currentWorld.IsCurrentWorld = true;
         maps[1][1] = currentWorld;

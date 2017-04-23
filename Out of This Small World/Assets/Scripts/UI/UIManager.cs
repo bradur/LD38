@@ -34,6 +34,11 @@ public class UIManager : MonoBehaviour {
         return playerInventoryManager.GetItem(objectType);
     }
 
+    public void ClearInventory()
+    {
+        playerInventoryManager.ClearInventory();
+    }
+
     public void InventoryUseItem(PlayerInventoryItem item)
     {
         playerInventoryManager.Use(item);

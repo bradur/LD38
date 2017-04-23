@@ -80,6 +80,12 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     private List<GenericWorldObject> genericWorldObjectPrefabs = new List<GenericWorldObject>();
 
+    [SerializeField]
+    private List<Level> levels = new List<Level>();
+
+    [SerializeField]
+    private int currentLevelIndex = 0;
+
     private float layerDistance = 0.005f;
 
     public GenericWorldObject GetWorldObjectPrefab(ObjectType objectType)
@@ -87,8 +93,21 @@ public class LevelLoader : MonoBehaviour
         return genericWorldObjectPrefabs[(int)objectType];
     }
 
+    public void LoadNextLevel()
+    {
+        if (currentLevelIndex < levels.Count)
+        {
+            Init(levels[currentLevelIndex].file);
+            currentLevelIndex += 1;
+        }
+    }
+
     private void Init(TextAsset mapFile)
     {
+        foreach(Transform child in worldTransform)
+        {
+            Destroy(child.gameObject);
+        }
         Vector3 tempPosition;
         TmxMap map = new TmxMap(mapFile.text, "unused");
         World world = Instantiate(worldPrefab);
@@ -116,8 +135,6 @@ public class LevelLoader : MonoBehaviour
             tiledMesh.transform.position = tempPosition;
             tiledMesh.GetComponent<MeshCollider>().enabled = false;
 
-
-
         }
         for (int index = 0; index < map.ObjectGroups.Count; index += 1)
         {
@@ -141,11 +158,17 @@ public class LevelLoader : MonoBehaviour
 
     void Start()
     {
-        Init(debugMap);
+        LoadNextLevel();
     }
 
     void Update()
     {
 
     }
+}
+
+[System.Serializable]
+public class Level : System.Object
+{
+    public TextAsset file;
 }

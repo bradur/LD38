@@ -29,14 +29,16 @@
 - [ ] Item system
     - [x] Pick up item
     - [x] Show picked up item on HUD (show tooltip?)
-    - [x] Required item tooltip (on objects)
-    - [ ] Use item (key, axe, pogo stick?)
+    - [x] Required item tooltip (on obje cts)
+    - [x] Use item (key, axe, pogo stick?)
         - [x] Unlock door with key
+        - [x] Chop down tree with axe
+        - [x] Enable swimming with flippers
     - [x] Destroy item after use (key, axe)
 
 - [ ] Level manager
-    - [ ] Current level
-    - [ ] Next level
+    - [x] Current level
+    - [x] Next level
     - [ ] Persisting state (continue in main menu)
 
 - [ ] Music
@@ -66,15 +68,15 @@
     - [x] Find and decide font
 
 - [ ] Art
-    - [ ] Textures
-        - [ ] Grass texture
-        - [ ] Water texture
-        - [ ] Wall texture
-        - [ ] Housewall texture
-    - [ ] Environment
-        - [ ] Door sprite (multiple colors / unity color var)
-        - [ ] Player sprite (animated preferably)
-        - [ ] Wormhole sprite (animated preferably)
+    - [x] Textures
+        - [x] Grass texture
+        - [x] Water texture
+        - [x] Wall texture
+        - [x] Housewall texture
+    - [x] Environment
+        - [x] Door sprite (multiple colors / unity color var)
+        - [x] Player sprite (animated preferably)
+        - [x] Wormhole sprite (animated preferably)
         - [x] Tree sprite
     - [x] Items
         - [x] Key sprite (multiple colors / unity color var)
