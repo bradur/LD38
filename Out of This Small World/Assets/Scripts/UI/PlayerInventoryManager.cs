@@ -36,6 +36,7 @@ public class PlayerInventoryManager : MonoBehaviour {
             if (inventoryItem.GenericObjectStruct.keyColorType == color)
             {
                 Use(inventoryItem);
+                SoundManager.main.PlaySound(SoundType.OpenDoor);
                 return true;
             }
         }

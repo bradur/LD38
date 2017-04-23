@@ -46,22 +46,22 @@
     - [x] Main theme
     - [ ] Main menu theme ?
 
-- [ ] Sounds
-    - [ ] Item pick up
-    - [ ] Use axe
-    - [ ] Use key
+- [x] Sounds
+    - [x] Item pick up
+    - [x] Use axe
+    - [x] Use key
     - [ ] Open door
-    - [ ] Walk through wormhole
+    - [x] Walk through wormhole
     - [ ] Swim
     - [ ] Walk on grass ?
     - [ ] Walk on floor ?
-    - [ ] Switch activate
+    - [x] Switch activate
     - [ ] Use pogo stick?
 
 - [ ] UI
     - [x] Exit "menu"
     - [ ] Main menu (Continue / New Game / Exit)
-    - [ ] The End menu (New Game / Main Menu / Exit)
+    - [x] The End menu (New Game / Main Menu / Exit)
     - [x] Required item tooltip
     - [ ] Show world title
 

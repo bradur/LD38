@@ -30,6 +30,7 @@ public class GenericWorldObject : MonoBehaviour
                 }
                 else if (genericObjectStruct.objectType == ObjectType.Wormhole)
                 {
+                    SoundManager.main.PlaySound(SoundType.WalkWormhole);
                     GameManager.main.LoadNextLevel();
                 }
             }
@@ -146,6 +147,7 @@ public class GenericWorldObject : MonoBehaviour
     public void ChopDownTree()
     {
         toBeDestroyed = true;
+        SoundManager.main.PlaySound(SoundType.OpenDoor);
         Destroy(gameObject);
     }
 
@@ -210,6 +212,7 @@ public class GenericWorldObject : MonoBehaviour
                     sr.sprite = genericObjectStruct.objectSprite;
                 }
                 firstUse = false;
+                SoundManager.main.PlaySound(SoundType.Switch);
                 GameManager.main.ToggleSwitch(genericObjectStruct.switchId);
             }
             else
@@ -288,6 +291,7 @@ public class GenericWorldObject : MonoBehaviour
             genericObjectStruct.keyColorType
         );
         toBeDestroyed = true;
+        SoundManager.main.PlaySound(SoundType.ItemPickup);
         Destroy(gameObject);
     }
 }

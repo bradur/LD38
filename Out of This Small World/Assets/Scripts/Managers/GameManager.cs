@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
 
     private bool waitingForExitKey = false;
 
+    [SerializeField]
+    private AudioSource themeSong;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -165,5 +168,21 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyUp(KeyManager.main.GetKey(Action.ToggleAudio)))
+        {
+            ShowToolTip(
+                "All audio is now: " + (themeSong.isPlaying ? "OFF" : "ON"),
+                exitSprite,
+                KeyColor.None
+            );
+            if (themeSong.isPlaying)
+            {
+                themeSong.Pause();
+            } else
+            {
+                themeSong.Play();
+            }
+            SoundManager.main.Toggle();
+        }
     }
 }

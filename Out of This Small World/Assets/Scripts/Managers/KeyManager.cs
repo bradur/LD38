@@ -13,7 +13,9 @@ public enum Action
     Sprint,
     OpenExitMenu,
     Exit,
-    Restart
+    Restart,
+    ToggleAudio,
+    ToggleTooltips
 }
 
 public class KeyManager : MonoBehaviour {

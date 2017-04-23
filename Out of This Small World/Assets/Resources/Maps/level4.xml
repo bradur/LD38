@@ -49,11 +49,6 @@
     <property name="Type" type="int" value="2"/>
    </properties>
   </object>
-  <object id="201" name="Axe" gid="42" x="256" y="1280" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="6"/>
-   </properties>
-  </object>
   <object id="219" name="WormHole" gid="37" x="704" y="64" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="4"/>
@@ -84,17 +79,12 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="250" name="Tree" gid="21" x="189" y="790" width="64" height="64">
+  <object id="250" name="Tree" gid="21" x="192" y="768" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="251" name="Tree" gid="21" x="226" y="818" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="10"/>
-   </properties>
-  </object>
-  <object id="252" name="Tree" gid="21" x="229" y="692" width="64" height="64">
+  <object id="252" name="Tree" gid="21" x="192" y="704" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
@@ -109,7 +99,7 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="255" name="Tree" gid="21" x="215" y="815" width="64" height="64">
+  <object id="255" name="Tree" gid="21" x="192" y="832" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
@@ -124,17 +114,7 @@
     <property name="Type" type="int" value="10"/>
    </properties>
   </object>
-  <object id="258" name="Tree" gid="21" x="198" y="747" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="10"/>
-   </properties>
-  </object>
-  <object id="259" name="Tree" gid="21" x="197" y="679" width="64" height="64">
-   <properties>
-    <property name="Type" type="int" value="10"/>
-   </properties>
-  </object>
-  <object id="260" name="Tree" gid="21" x="212" y="625" width="64" height="64">
+  <object id="260" name="Tree" gid="21" x="192" y="640" width="64" height="64">
    <properties>
     <property name="Type" type="int" value="10"/>
    </properties>
