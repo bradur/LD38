@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 212013843359729546}
   m_Layer: 0
   m_Name: 8 - SwitchWall
-  m_TagString: Untagged
+  m_TagString: SwitchWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

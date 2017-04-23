@@ -152,12 +152,12 @@ public class GenericWorldObject : MonoBehaviour
                     sr = GetComponent<SpriteRenderer>();
                     
                 }
-                GenericWorldObject worldObject = GameManager.main.GetWorldObjectPrefab(ObjectType.SwitchWall);
+                string switchColor = genericObjectStruct.keyColorType != KeyColor.None ? genericObjectStruct.keyColorType + " " : "";
                 if (sr.sprite == genericObjectStruct.objectSprite)
                 {
                     GameManager.main.ShowToolTip(
-                        "You walked on a switch!",
-                        worldObject.GenericObjectStruct.switchSprite,
+                        "You walked on a " + switchColor + "switch!",
+                        genericObjectStruct.switchSprite,
                         genericObjectStruct.keyColorType
                     );
                     sr.sprite = genericObjectStruct.switchSprite;
@@ -166,7 +166,7 @@ public class GenericWorldObject : MonoBehaviour
                 {
                     GameManager.main.ShowToolTip(
                         "The switch reset!",
-                        worldObject.GenericObjectStruct.objectSprite,
+                        genericObjectStruct.objectSprite,
                         genericObjectStruct.keyColorType
                     );
                     sr.sprite = genericObjectStruct.objectSprite;

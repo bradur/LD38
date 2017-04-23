@@ -67,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
                     doorToOpen.GenericObjectStruct.objectSprite,
                     doorToOpen.GenericObjectStruct.keyColorType
                 );
-            } else
+            }
+            else
             {
                 GameManager.main.ShowToolTip(
                     "Too far away to unlock the " + doorToOpen.GenericObjectStruct.keyColorType + " door!",
@@ -81,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyManager.main.GetKey(Action.SwingAxe)) && targetTree != null)
         {
             PlayerInventoryItem item = GameManager.main.InventoryGetItem(ObjectType.Axe);
-            if(item != null)
+            if (item != null)
             {
                 if (Vector2.Distance(transform.position, targetTree.transform.position) < 1f)
                 {
@@ -175,7 +176,8 @@ public class PlayerMovement : MonoBehaviour
                     item.GenericObjectStruct.objectSprite,
                     KeyColor.None
                 );
-                if (targetTree != null) {
+                if (targetTree != null)
+                {
                     targetTree.LowLight();
                 }
                 targetTree = worldObject;
@@ -190,6 +192,16 @@ public class PlayerMovement : MonoBehaviour
                     worldObject.GenericObjectStruct.keyColorType
                 );
             }
+        }
+        else if (collision.gameObject.tag == "SwitchWall")
+        {
+            GenericWorldObject switchObject = GameManager.main.GetWorldObjectPrefab(ObjectType.Switch);
+            string switchColor = worldObject.GenericObjectStruct.keyColorType != KeyColor.None ? worldObject.GenericObjectStruct.keyColorType  + " " : "";
+            GameManager.main.ShowToolTip(
+                "Walk on a " + switchColor + "switch to get through here.",
+                switchObject.GenericObjectStruct.objectSprite,
+                worldObject.GenericObjectStruct.keyColorType
+            );
         }
     }
 
