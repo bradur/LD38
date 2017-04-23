@@ -40,6 +40,7 @@ public class GenericWorldObject : MonoBehaviour
     private SpriteRenderer sr = null;
     private BoxCollider bc = null;
     private bool firstUse = true;
+    private Color switchedOffColor;
 
     [SerializeField]
     private SpriteRenderer highLight;
@@ -57,7 +58,19 @@ public class GenericWorldObject : MonoBehaviour
         if (dict.ContainsKey("Color"))
         {
             genericObjectStruct.keyColorType = (KeyColor)Tools.IntParseFast(dict["Color"]);
-            genericObjectStruct.keyColor = GameManager.main.GetKeyColor(genericObjectStruct.keyColorType);
+            Color color = GameManager.main.GetKeyColor(genericObjectStruct.keyColorType);
+            if (genericObjectStruct.objectType == ObjectType.SwitchWall)
+            {
+                float h = 0;
+                float s = 0;
+                float v = 0;
+                Color.RGBToHSV(color, out h, out s, out v);
+                v = 0.5f;
+                s = 0.5f;
+                switchedOffColor = Color.HSVToRGB(h, s, v);
+            }
+            genericObjectStruct.keyColor = color;
+
         }
         if (dict.ContainsKey("Reusable"))
         {
@@ -78,19 +91,26 @@ public class GenericWorldObject : MonoBehaviour
         {
             GameManager.main.SpawnPlayer(transform.position);
         }
-        if (genericObjectStruct.objectType == ObjectType.SwitchWall && genericObjectStruct.switchedOn)
+        if (genericObjectStruct.objectType == ObjectType.SwitchWall)
         {
-            if (sr == null)
+            if (genericObjectStruct.switchedOn)
             {
-                sr = GetComponent<SpriteRenderer>();
+                if (sr == null)
+                {
+                    sr = GetComponent<SpriteRenderer>();
+                }
+                if (bc == null)
+                {
+                    bc = GetComponent<BoxCollider>();
+                }
+                bc.enabled = true;
+                //sr.enabled = true;
+                sr.sprite = genericObjectStruct.switchSprite;
             }
-            if (bc == null)
+            else
             {
-                bc = GetComponent<BoxCollider>();
+                sr.color = switchedOffColor;
             }
-            bc.enabled = true;
-            //sr.enabled = true;
-            sr.sprite = genericObjectStruct.switchSprite;
         }
     }
 
@@ -132,11 +152,19 @@ public class GenericWorldObject : MonoBehaviour
             {
                 bc = GetComponent<BoxCollider>();
             }
+            if (!bc.enabled)
+            {
+                sr.color = genericObjectStruct.keyColor;
+                sr.sprite = genericObjectStruct.switchSprite;
+            }
+            else
+            {
+                sr.color = switchedOffColor;
+                sr.sprite = genericObjectStruct.objectSprite;
+            }
             bc.enabled = !bc.enabled;
             //sr.enabled = !sr.enabled;
-            sr.sprite = sr.sprite != genericObjectStruct.switchSprite ? genericObjectStruct.switchSprite : genericObjectStruct.objectSprite;
             firstUse = false;
-
         }
     }
 
@@ -150,7 +178,7 @@ public class GenericWorldObject : MonoBehaviour
                 if (sr == null)
                 {
                     sr = GetComponent<SpriteRenderer>();
-                    
+
                 }
                 string switchColor = genericObjectStruct.keyColorType != KeyColor.None ? genericObjectStruct.keyColorType + " " : "";
                 if (sr.sprite == genericObjectStruct.objectSprite)

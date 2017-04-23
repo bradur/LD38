@@ -21,6 +21,7 @@
 - [ ] Player
     - [x] Player movement
     - [x] Camera follow
+    - [ ] Sprint
 
 - [x] Looping world
 
