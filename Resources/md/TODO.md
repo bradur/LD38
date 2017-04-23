@@ -21,7 +21,7 @@
 - [ ] Player
     - [x] Player movement
     - [x] Camera follow
-    - [ ] Sprint
+    - [x] Sprint
 
 - [x] Looping world
 
@@ -43,7 +43,7 @@
     - [ ] Persisting state (continue in main menu)
 
 - [ ] Music
-    - [ ] Main theme
+    - [x] Main theme
     - [ ] Main menu theme ?
 
 - [ ] Sounds
@@ -59,7 +59,7 @@
     - [ ] Use pogo stick?
 
 - [ ] UI
-    - [ ] Pause menu (Resume / Main Menu / Restart)
+    - [x] Exit "menu"
     - [ ] Main menu (Continue / New Game / Exit)
     - [ ] The End menu (New Game / Main Menu / Exit)
     - [x] Required item tooltip
